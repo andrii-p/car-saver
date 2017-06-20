@@ -40,6 +40,10 @@ public class CarsSaverApplication {
 
 				System.out.println("HTML doc");
 				//System.out.println(doc);
+				String title = doc.getElementById("titletextonly").text();
+				String price = doc.select("span.price").first().text();
+				String location = doc.select("span.postingtitletext").first().text();
+				System.out.println("title - " + title + ", price - " + price + ", location - " + location);
 				System.out.println("===============================================================");
 
 				Element aElem= doc.select("a.showcontact").first();

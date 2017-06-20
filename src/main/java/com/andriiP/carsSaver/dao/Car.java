@@ -30,8 +30,6 @@ public class Car extends AbstractEntity {
     private String transmission;
     private String type;
     private String description;
-    private String phoneNumber;
-    private String email;
     private String notes;
 
     //required by JPA
