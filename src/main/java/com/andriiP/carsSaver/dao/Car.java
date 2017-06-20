@@ -17,7 +17,7 @@ import javax.persistence.Version;
 @Entity
 public class Car extends AbstractEntity {
 
-    private String description;
+    private String title;
     private String VIN;
     private Long odometer;
     private String condition;
@@ -29,6 +29,10 @@ public class Car extends AbstractEntity {
     private String titleStatus;
     private String transmission;
     private String type;
+    private String description;
+    private String phoneNumber;
+    private String email;
+    private String notes;
 
     //required by JPA
     public Car(){
@@ -44,13 +48,13 @@ public class Car extends AbstractEntity {
         Car car = (Car) o;
 
         if (id != null ? !id.equals(car.id) : car.id != null) return false;
-        return description.equals(car.description);
+        return title.equals(car.title);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
     }
 
