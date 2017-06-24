@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CarRepo extends PagingAndSortingRepository<Car, Long> {
+
+    public Car findByTitleAndYearMakeModel(String title, String yearMakeModel);
 }

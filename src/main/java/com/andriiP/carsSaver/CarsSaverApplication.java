@@ -32,17 +32,18 @@ public class CarsSaverApplication {
 			SyndFeed feed = input.build(new XmlReader(url));
 
 			feed.getEntries().forEach(entry -> links.add(entry.getLink()));
-			//String link = links.get(0);
+
 			for (String link : links){
 				System.out.println("===============================================================");
 				System.out.println("Connecting to " + link);
 				Document doc = Jsoup.connect(link).get();
 
-				System.out.println("HTML doc");
+				//System.out.println("HTML doc");
 				//System.out.println(doc);
+
 				String title = doc.getElementById("titletextonly").text();
-				String price = doc.select("span.price").first().text();
-				String location = doc.select("span.postingtitletext").first().text();
+				String price = doc.select("span.price").first() == null ? "" : doc.select("span.price").first().text();
+				String location = doc.select("span.postingtitletext > small").first() == null ? "" : doc.select("span.postingtitletext > small").first().text();
 				System.out.println("title - " + title + ", price - " + price + ", location - " + location);
 				System.out.println("===============================================================");
 
@@ -56,10 +57,15 @@ public class CarsSaverApplication {
 					Document contactInfo = Jsoup.connect(contactUrl).get();
 					System.out.println("contactInfo page:");
 					System.out.println(contactInfo);
+
 					Element body = contactInfo.getElementsByTag("body").first();
 					System.out.println("body:");
 					System.out.println(body.text());
-					System.out.println("===============================================================");
+
+				} else {
+					String postBody = doc.getElementById("postingbody").text();
+					System.out.println("postBody:");
+					System.out.println(postBody);
 				}
 
 				/*Elements paragraphs = doc.select("p.attrgroup");
@@ -77,6 +83,8 @@ public class CarsSaverApplication {
 				for (Element e : spans){
 					System.out.println("<span> - " + e.text());
 				}
+				System.out.println("===============================================================");
+				System.out.println();
 			}
 
 			//System.out.println(entries);

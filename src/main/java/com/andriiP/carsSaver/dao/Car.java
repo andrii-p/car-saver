@@ -18,8 +18,11 @@ import javax.persistence.Version;
 public class Car extends AbstractEntity {
 
     private String title;
+    private String price;
+    private String location;
+    private String yearMakeModel;
     private String VIN;
-    private Long odometer;
+    private String odometer;
     private String condition;
     private String cylinders;
     private String drive;
@@ -29,12 +32,19 @@ public class Car extends AbstractEntity {
     private String titleStatus;
     private String transmission;
     private String type;
-    private String description;
+    private String postBody;
     private String notes;
 
     //required by JPA
     public Car(){
         super();
+    }
+
+    public Car (String title, String yearMakeModel, String postBody ){
+        super();
+        this.title = title;
+        this.yearMakeModel = yearMakeModel;
+        this.postBody = postBody;
     }
 
     @Override
