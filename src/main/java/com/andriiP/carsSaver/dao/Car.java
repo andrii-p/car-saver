@@ -5,10 +5,7 @@ import com.andriiP.carsSaver.enums.Condition;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 /**
  * Created by kurt on 6/17/17.
@@ -23,6 +20,7 @@ public class Car extends AbstractEntity {
     private String yearMakeModel;
     private String VIN;
     private String odometer;
+    @Column(name="carCondition")
     private String condition;
     private String cylinders;
     private String drive;
@@ -32,6 +30,7 @@ public class Car extends AbstractEntity {
     private String titleStatus;
     private String transmission;
     private String type;
+    @Column(length = 3000)
     private String postBody;
     private String notes;
 

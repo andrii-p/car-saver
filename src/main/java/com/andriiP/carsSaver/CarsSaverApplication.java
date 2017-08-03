@@ -1,5 +1,7 @@
 package com.andriiP.carsSaver;
 
+import com.andriiP.carsSaver.dao.Car;
+import com.andriiP.carsSaver.services.CarService;
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;
@@ -8,6 +10,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,10 +21,25 @@ import java.util.List;
 @SpringBootApplication
 public class CarsSaverApplication {
 
+
+	private static CarService carServiceImp;
+
+	@Autowired
+	public void ssetCarServiceImp(CarService service){
+		carServiceImp = service;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(CarsSaverApplication.class, args);
 
-		List<String> links = new ArrayList<>();
+		if (carServiceImp == null){
+			System.out.println("carServiceImp is NULL");
+		}
+
+
+		carServiceImp.updateViaRSS("https://denver.craigslist.org/search/cto?format=rss");
+
+		/*List<String> links = new ArrayList<>();
 
 		try {
 			URL url = new URL("https://denver.craigslist.org/search/cto?format=rss");
@@ -68,7 +86,7 @@ public class CarsSaverApplication {
 					System.out.println(postBody);
 				}
 
-				/*Elements paragraphs = doc.select("p.attrgroup");
+				*//*Elements paragraphs = doc.select("p.attrgroup");
 
 				System.out.println("Paragraphs:");
 				for (Element e : paragraphs){
@@ -76,7 +94,7 @@ public class CarsSaverApplication {
 					for (Element s : e.select("span")){
 						System.out.println("span - " + s.text());
 					}
-				}*/
+				}*//*
 
 				System.out.println("===============================================================");
 				Elements spans = doc.select("p.attrgroup > span");
@@ -90,7 +108,7 @@ public class CarsSaverApplication {
 			//System.out.println(entries);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 
 	}

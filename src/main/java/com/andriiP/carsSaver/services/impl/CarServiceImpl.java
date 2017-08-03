@@ -65,12 +65,21 @@ public class CarServiceImpl implements CarService {
         carRepo.save(cars);
     }
 
+
+    /**
+     * This method takes craigslist RSS feed url, parses it and extracts all car ads links.
+     * Then it connects to each link, parses received HTML page and extracts all properties
+     * needed for the Car object. If created Car object doesn't already exist in database then
+     * it gets saved.     *
+     * @param url RSS feed url
+     */
     public void updateViaRSS(String url){
 
         if (url == null || url.isEmpty()) return;
 
         List<String> links = new ArrayList<>();
 
+        //getting links for car ads from RSS feed
         try {
             logger.info("Readding RSS feed : " + url);
 
@@ -87,6 +96,7 @@ public class CarServiceImpl implements CarService {
 
         Document doc = null;
 
+        //processing links
         for (String link : links){
 
             try{
@@ -98,66 +108,68 @@ public class CarServiceImpl implements CarService {
                 continue;
             }
 
-            String title = doc.getElementById("titletextonly").text();
-            String price = doc.select("span.price").first() == null ? "" : doc.select("span.price").first().text();
-            String location = doc.select("span.postingtitletext > small").first() == null ? "" : doc.select("span.postingtitletext > small").first().text();
-            String postBody = doc.getElementById("postingbody").text().substring(25).trim();
+            //checking if ad wasn't deleted
+            if (doc.getElementById("titletextonly") != null){
 
-            Elements details = doc.select("p.attrgroup > span");
-            String yearMakeModel = details.first().text();
+                String title = doc.getElementById("titletextonly").text();
+                String price = doc.select("span.price").first() == null ? "" : doc.select("span.price").first().text();
 
-            if (findByTitleAndYearMakeModel(title, yearMakeModel) != null){
-                logger.info("title - " + title + ", price - " + price + ", location - " + location +  ", postBody - " + postBody + ", yearMakeModel - " + yearMakeModel);
+                //removing parenthesis on both sides
+                String location = doc.select("span.postingtitletext > small").first() == null ? "" : doc.select("span.postingtitletext > small").first().text();
 
-                Car car = new Car(title, yearMakeModel, postBody);
-                car.setPrice(price);
-                car.setLocation(location);
+                //removing irrelevant "QR Code Link to This Post" from the beginning
+                String postBody = doc.getElementById("postingbody").text().substring(25).trim();
 
-                for (Element prop : details){
-                    logger.info("<span> - " + prop.text());
-                    setCarProp(car, prop.text());
+                Elements details = doc.select("p.attrgroup > span");
+                String yearMakeModel = details.first().text();
+
+                if (findByTitleAndYearMakeModel(title, yearMakeModel) == null){
+                    logger.info("title - " + title + ", price - " + price + ", location - " + location +  ", postBody - " + postBody + ", yearMakeModel - " + yearMakeModel);
+
+                    Car car = new Car(title, yearMakeModel, postBody);
+                    car.setPrice(price);
+                    car.setLocation(location);
+
+                    //setting car properties
+                    for (Element prop : details){
+                        logger.info("<span> - " + prop.text());
+                        setCarProp(car, prop.text());
+                    }
+                    logger.info("Saving : " + title + yearMakeModel);
+                    save(car);
+                } else {
+                    logger.info("NOT SAVING - " + title + yearMakeModel);
                 }
-            }
 
+            }
         }
     }
 
     private void setCarProp(Car car, String prop){
-        String[] keyValue;
 
-        if (prop.contains("VIN:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+        //breaking down string formatted as "key: value" and saving value
+        if (prop.contains("VIN:")){;
+            car.setVIN(prop.split(": ")[1]);
         } else if (prop.contains("odometer:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
-        } else if (prop.contains("condtion:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setOdometer(prop.split(": ")[1]);
+        } else if (prop.contains("condition:")){
+            car.setCondition(prop.split(": ")[1]);
         } else if (prop.contains("cylinders:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setCylinders(prop.split(": ")[1]);
         } else if (prop.contains("drive:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setDrive(prop.split(": ")[1]);
         } else if (prop.contains("fuel:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setFuel(prop.split(": ")[1]);
         } else if (prop.contains("paint color:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
-        } else if (prop.contains("size :")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setPaintColor(prop.split(": ")[1]);
+        } else if (prop.contains("size:")){
+            car.setSize(prop.split(": ")[1]);
         } else if (prop.contains("title status:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setTitleStatus(prop.split(": ")[1]);
         } else if (prop.contains("transmission:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setTransmission(prop.split(": ")[1]);
         } else if (prop.contains("type:")){
-            keyValue = prop.split(": ");
-            car.setVIN(keyValue[1]);
+            car.setType(prop.split(": ")[1]);
         }
     }
 }

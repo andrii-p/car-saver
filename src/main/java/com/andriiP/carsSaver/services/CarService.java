@@ -13,6 +13,8 @@ public interface CarService {
 
     public List<Car> findAll();
 
+    public Car findByTitleAndYearMakeModel(String title, String yearMakeModel);
+
     public long countCars();
 
     public boolean exists(Long id);
@@ -21,4 +23,5 @@ public interface CarService {
 
     public void save(List<Car> cars);
 
+    public void updateViaRSS(String url);
 }
