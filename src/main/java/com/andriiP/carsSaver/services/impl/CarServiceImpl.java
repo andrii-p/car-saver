@@ -71,105 +71,142 @@ public class CarServiceImpl implements CarService {
      * Then it connects to each link, parses received HTML page and extracts all properties
      * needed for the Car object. If created Car object doesn't already exist in database then
      * it gets saved.     *
-     * @param url RSS feed url
+     * @param rss RSS feed url
      */
-    public void updateViaRSS(String url){
+    public void updateViaRSS(String rss){
 
-        if (url == null || url.isEmpty()) return;
+        if (rss == null || rss.isEmpty()) return;
+
+        List<String> links;
+        List<Document> htmlFiles;
+        List<Car> cars;
+
+        try {
+            links = getLinksFromRSS(rss);
+            htmlFiles = getHTMLsFromLinks(links);
+            cars = parseHTMLsAndGetCars(htmlFiles);
+            saveNewCarsOnly(cars);
+
+        } catch (Exception e){
+            logger.error("ERROR on either processing RSS feed, links or html files: ");
+            logger.error("Message", e);
+        }
+    }
+
+    private List<String> getLinksFromRSS(String rss) throws Exception{
+
+        logger.info("Reading RSS feed : " + rss);
+
+        URL RSSfeed = new URL(rss);
+        SyndFeedInput input = new SyndFeedInput();
+        SyndFeed feed = input.build(new XmlReader(RSSfeed));
 
         List<String> links = new ArrayList<>();
 
-        //getting links for car ads from RSS feed
-        try {
-            logger.info("Readding RSS feed : " + url);
+        feed.getEntries().forEach(entry -> links.add(entry.getLink()));
 
-            URL RSSfeed = new URL(url);
-            SyndFeedInput input = new SyndFeedInput();
-            SyndFeed feed = input.build(new XmlReader(RSSfeed));
+        return links;
+    }
 
-            feed.getEntries().forEach(entry -> links.add(entry.getLink()));
-        } catch (Exception e){
-            logger.error("ERROR on readubg RSS feed : " + url);
-            logger.error("Message", e);
-            return;
+    private List<Document> getHTMLsFromLinks(List<String> links) throws Exception {
+
+        Document html = null;
+        List<Document> htmlFiles = new ArrayList<>();
+
+        for (String link : links){
+            logger.info("Processing link : " + link);
+
+            html = Jsoup.connect(link).get();
+            htmlFiles.add(html);
         }
 
-        Document doc = null;
+        return htmlFiles;
+    }
 
-        //processing links
-        for (String link : links){
+    private List<Car> parseHTMLsAndGetCars(List<Document> htmlFiles) {
 
-            try{
-                logger.info("Connecting to : " + link);
-                doc = Jsoup.connect(link).get();
-            } catch (Exception e){
-                logger.error("ERROR on connecting to : " + url);
-                logger.error("Message", e);
-                continue;
-            }
+        List<Car> cars = new ArrayList<>();
+
+        for (Document html : htmlFiles) {
 
             //checking if ad wasn't deleted
-            if (doc.getElementById("titletextonly") != null){
+            if (html.getElementById("titletextonly") != null) {
 
-                String title = doc.getElementById("titletextonly").text();
-                String price = doc.select("span.price").first() == null ? "" : doc.select("span.price").first().text();
+                //getting most but not all attributes available in the ad
+                Elements attributesGroup = html.select("p.attrgroup > span");
 
-                //removing parenthesis on both sides
-                String location = doc.select("span.postingtitletext > small").first() == null ? "" : doc.select("span.postingtitletext > small").first().text();
+                //getting required fields needed for new Car instance
+                String title = html.getElementById("titletextonly").text();
+                String yearMakeModel = attributesGroup.first().text();
+                
+                String postBody = html.getElementById("postingbody").text();
+                postBody = postBody.substring(25).trim(); //removing irrelevant "QR Code Link to This Post" phrase from the beginning of post body
 
-                //removing irrelevant "QR Code Link to This Post" from the beginning
-                String postBody = doc.getElementById("postingbody").text().substring(25).trim();
-
-                Elements details = doc.select("p.attrgroup > span");
-                String yearMakeModel = details.first().text();
-
-                if (findByTitleAndYearMakeModel(title, yearMakeModel) == null){
-                    logger.info("title - " + title + ", price - " + price + ", location - " + location +  ", postBody - " + postBody + ", yearMakeModel - " + yearMakeModel);
-
-                    Car car = new Car(title, yearMakeModel, postBody);
-                    car.setPrice(price);
-                    car.setLocation(location);
-
-                    //setting car properties
-                    for (Element prop : details){
-                        logger.info("<span> - " + prop.text());
-                        setCarProp(car, prop.text());
-                    }
-                    logger.info("Saving : " + title + yearMakeModel);
-                    save(car);
-                } else {
-                    logger.info("NOT SAVING - " + title + yearMakeModel);
+                if (postBody.length() >= 1500) { //database field restriction is 1500 characters
+                    postBody = postBody.substring(0, 1500);
                 }
 
+                Car car = new Car(title, yearMakeModel, postBody);
+
+                //setting car attributes that got above
+                for (Element attr : attributesGroup) { 
+                    car.setCarAttr(attr.text());
+                }
+
+                //getting remaining attributes
+                String price = html.select("span.price").first() == null ? null : html.select("span.price").first().text();
+                String location = html.select("span.postingtitletext > small").first() == null ? null : html.select("span.postingtitletext > small").first().text();
+
+                if (location != null) { //removing parenthesis around
+                    location = location.substring(1);
+                    location = location.substring(0, location.length() - 1);
+                }
+                
+                car.setPrice(price);
+                car.setLocation(location);
+
+                cars.add(car);
+
+                //Tried to imitate mouse click on "showcontact" button to get the actual contact info. Not sure if really needed
+                /*Element aElem = html.select("a.showcontact").first();
+                System.out.println("contact link - " + aElem);
+
+                if (aElem != null) {
+                    String contactUrl = url.getProtocol() + "://" + url.getHost() + html.select("a.showcontact").attr("href");
+                    System.out.println("contactUrl - " + contactUrl);
+
+                    Document contactInfo = Jsoup.connect(contactUrl).get();
+                    System.out.println("contactInfo page:");
+                    System.out.println(contactInfo);
+
+                    Element body = contactInfo.getElementsByTag("body").first();
+                    System.out.println("body:");
+                    System.out.println(body.text());
+
+                } else {
+                    String postBody = html.getElementById("postingbody").text();
+                    System.out.println("postBody:");
+                    System.out.println(postBody);
+                }*/
             }
         }
+
+        return cars;
     }
 
-    private void setCarProp(Car car, String prop){
+    private void saveNewCarsOnly(List<Car> cars){
 
-        //breaking down string formatted as "key: value" and saving value
-        if (prop.contains("VIN:")){;
-            car.setVIN(prop.split(": ")[1]);
-        } else if (prop.contains("odometer:")){
-            car.setOdometer(prop.split(": ")[1]);
-        } else if (prop.contains("condition:")){
-            car.setCondition(prop.split(": ")[1]);
-        } else if (prop.contains("cylinders:")){
-            car.setCylinders(prop.split(": ")[1]);
-        } else if (prop.contains("drive:")){
-            car.setDrive(prop.split(": ")[1]);
-        } else if (prop.contains("fuel:")){
-            car.setFuel(prop.split(": ")[1]);
-        } else if (prop.contains("paint color:")){
-            car.setPaintColor(prop.split(": ")[1]);
-        } else if (prop.contains("size:")){
-            car.setSize(prop.split(": ")[1]);
-        } else if (prop.contains("title status:")){
-            car.setTitleStatus(prop.split(": ")[1]);
-        } else if (prop.contains("transmission:")){
-            car.setTransmission(prop.split(": ")[1]);
-        } else if (prop.contains("type:")){
-            car.setType(prop.split(": ")[1]);
+        for(Car car : cars){
+            //checking if not a duplicate car
+            if (this.findByTitleAndYearMakeModel(car.getTitle(), car.getYearMakeModel()) == null){
+                logger.info("FOUND NEW CAR : \n" + car);
+                this.save(car);
+            } else {
+                logger.info("FOUND A DUPLICATE: \n" + car);
+            }
         }
+
     }
+
+
 }
