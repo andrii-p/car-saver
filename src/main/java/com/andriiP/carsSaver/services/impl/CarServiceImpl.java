@@ -26,12 +26,134 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     private Logger logger = LoggerFactory.getLogger(CarServiceImpl.class);
-
     private CarRepo carRepo;
 
     @Autowired
     public CarServiceImpl(CarRepo carRepo) {
         this.carRepo = carRepo;
+    }
+
+    /**
+     * This method takes craigslist RSS feed url, parses it and extracts all car ads links.
+     * Then it connects to each link, parses received HTML page and extracts all properties
+     * needed for the Car object. If created Car object doesn't already exist in database then
+     * it gets saved.     *
+     * @param rss RSS feed url
+     */
+    public void updateCarsViaRSS(String rss){
+        if (rss == null || rss.isEmpty()) return;
+
+        List<String> links;
+        List<Document> htmlFiles;
+        List<Car> cars;
+
+        try {
+            links = getLinksFromRSS(rss);
+            htmlFiles = getHTMLsFromLinks(links);
+            cars = parseHTMLsAndGetCars(htmlFiles);
+            saveNewCarsOnly(cars);
+        } catch (Exception e){
+            logger.error("ERROR on either processing RSS feed, links or html files: ");
+            logger.error("ERROR message:", e);
+        }
+    }
+
+    private List<String> getLinksFromRSS(String rss) throws Exception{
+        logger.info("Reading RSS feed : " + rss);
+
+        URL RSSfeed = new URL(rss);
+        SyndFeedInput input = new SyndFeedInput();
+        SyndFeed feed = input.build(new XmlReader(RSSfeed));
+
+        List<String> links = new ArrayList<>();
+        feed.getEntries().forEach(entry -> links.add(entry.getLink()));
+        return links;
+    }
+
+    private List<Document> getHTMLsFromLinks(List<String> links) throws Exception {
+        Document html;
+        List<Document> htmlFiles = new ArrayList<>();
+
+        for (String link : links){
+            logger.info("Processing link : " + link);
+            html = Jsoup.connect(link).get();
+            htmlFiles.add(html);
+        }
+        return htmlFiles;
+    }
+
+    private List<Car> parseHTMLsAndGetCars(List<Document> htmlFiles) {
+        List<Car> cars = new ArrayList<>();
+
+        for (Document html : htmlFiles) {
+            //checking if ad wasn't deleted
+            if (html.getElementById("titletextonly") != null) {
+                Elements carAttributes = html.select("p.attrgroup > span");
+
+                String title = html.getElementById("titletextonly").text();
+                String yearMakeModel = carAttributes.first().text();
+                String postBody = html.getElementById("postingbody").text();
+                postBody = postBody.substring(25).trim(); //removing irrelevant "QR Code Link to This Post" phrase from the beginning of post body
+
+                if (postBody.length() >= 1500) { //database field restriction is 1500 characters
+                    postBody = postBody.substring(0, 1500);
+                }
+
+                Car car = new Car(title, yearMakeModel, postBody);
+
+                for (Element attr : carAttributes) {
+                    car.setCarAttribute(attr.text());
+                }
+
+                String price = html.select("span.price").first() == null ? null : html.select("span.price").first().text();
+                String location = html.select("span.postingtitletext > small").first() == null ? null : html.select("span.postingtitletext > small").first().text();
+
+                if (location != null) {
+                    //removing parenthesis around
+                    location = location.substring(1);
+                    location = location.substring(0, location.length() - 1);
+                }
+                
+                car.setPrice(price);
+                car.setLocation(location);
+                cars.add(car);
+
+                //Tried to imitate mouse click on "showcontact" button to get the actual contact info. Not sure if really needed
+                /*Element aElem = html.select("a.showcontact").first();
+                System.out.println("contact link - " + aElem);
+
+                if (aElem != null) {
+                    String contactUrl = url.getProtocol() + "://" + url.getHost() + html.select("a.showcontact").attr("href");
+                    System.out.println("contactUrl - " + contactUrl);
+
+                    Document contactInfo = Jsoup.connect(contactUrl).get();
+                    System.out.println("contactInfo page:");
+                    System.out.println(contactInfo);
+
+                    Element body = contactInfo.getElementsByTag("body").first();
+                    System.out.println("body:");
+                    System.out.println(body.text());
+
+                } else {
+                    String postBody = html.getElementById("postingbody").text();
+                    System.out.println("postBody:");
+                    System.out.println(postBody);
+                }*/
+            }
+        }
+        return cars;
+    }
+
+    private void saveNewCarsOnly(List<Car> cars){
+        for(Car car : cars){
+            //checking if not a duplicate car
+            if (this.findByTitleAndYearMakeModel(car.getTitle(), car.getYearMakeModel()) == null){
+                logger.info("FOUND NEW CAR : \n" + car);
+                this.save(car);
+            } else {
+                logger.info("FOUND A DUPLICATE: \n" + car);
+            }
+        }
     }
 
     public Car findOne(Long id) {
@@ -64,149 +186,5 @@ public class CarServiceImpl implements CarService {
     public void save(List<Car> cars) {
         carRepo.save(cars);
     }
-
-
-    /**
-     * This method takes craigslist RSS feed url, parses it and extracts all car ads links.
-     * Then it connects to each link, parses received HTML page and extracts all properties
-     * needed for the Car object. If created Car object doesn't already exist in database then
-     * it gets saved.     *
-     * @param rss RSS feed url
-     */
-    public void updateViaRSS(String rss){
-
-        if (rss == null || rss.isEmpty()) return;
-
-        List<String> links;
-        List<Document> htmlFiles;
-        List<Car> cars;
-
-        try {
-            links = getLinksFromRSS(rss);
-            htmlFiles = getHTMLsFromLinks(links);
-            cars = parseHTMLsAndGetCars(htmlFiles);
-            saveNewCarsOnly(cars);
-
-        } catch (Exception e){
-            logger.error("ERROR on either processing RSS feed, links or html files: ");
-            logger.error("Message", e);
-        }
-    }
-
-    private List<String> getLinksFromRSS(String rss) throws Exception{
-
-        logger.info("Reading RSS feed : " + rss);
-
-        URL RSSfeed = new URL(rss);
-        SyndFeedInput input = new SyndFeedInput();
-        SyndFeed feed = input.build(new XmlReader(RSSfeed));
-
-        List<String> links = new ArrayList<>();
-
-        feed.getEntries().forEach(entry -> links.add(entry.getLink()));
-
-        return links;
-    }
-
-    private List<Document> getHTMLsFromLinks(List<String> links) throws Exception {
-
-        Document html = null;
-        List<Document> htmlFiles = new ArrayList<>();
-
-        for (String link : links){
-            logger.info("Processing link : " + link);
-
-            html = Jsoup.connect(link).get();
-            htmlFiles.add(html);
-        }
-
-        return htmlFiles;
-    }
-
-    private List<Car> parseHTMLsAndGetCars(List<Document> htmlFiles) {
-
-        List<Car> cars = new ArrayList<>();
-
-        for (Document html : htmlFiles) {
-
-            //checking if ad wasn't deleted
-            if (html.getElementById("titletextonly") != null) {
-
-                //getting most but not all attributes available in the ad
-                Elements attributesGroup = html.select("p.attrgroup > span");
-
-                //getting required fields needed for new Car instance
-                String title = html.getElementById("titletextonly").text();
-                String yearMakeModel = attributesGroup.first().text();
-                
-                String postBody = html.getElementById("postingbody").text();
-                postBody = postBody.substring(25).trim(); //removing irrelevant "QR Code Link to This Post" phrase from the beginning of post body
-
-                if (postBody.length() >= 1500) { //database field restriction is 1500 characters
-                    postBody = postBody.substring(0, 1500);
-                }
-
-                Car car = new Car(title, yearMakeModel, postBody);
-
-                //setting car attributes that got above
-                for (Element attr : attributesGroup) { 
-                    car.setCarAttr(attr.text());
-                }
-
-                //getting remaining attributes
-                String price = html.select("span.price").first() == null ? null : html.select("span.price").first().text();
-                String location = html.select("span.postingtitletext > small").first() == null ? null : html.select("span.postingtitletext > small").first().text();
-
-                if (location != null) { //removing parenthesis around
-                    location = location.substring(1);
-                    location = location.substring(0, location.length() - 1);
-                }
-                
-                car.setPrice(price);
-                car.setLocation(location);
-
-                cars.add(car);
-
-                //Tried to imitate mouse click on "showcontact" button to get the actual contact info. Not sure if really needed
-                /*Element aElem = html.select("a.showcontact").first();
-                System.out.println("contact link - " + aElem);
-
-                if (aElem != null) {
-                    String contactUrl = url.getProtocol() + "://" + url.getHost() + html.select("a.showcontact").attr("href");
-                    System.out.println("contactUrl - " + contactUrl);
-
-                    Document contactInfo = Jsoup.connect(contactUrl).get();
-                    System.out.println("contactInfo page:");
-                    System.out.println(contactInfo);
-
-                    Element body = contactInfo.getElementsByTag("body").first();
-                    System.out.println("body:");
-                    System.out.println(body.text());
-
-                } else {
-                    String postBody = html.getElementById("postingbody").text();
-                    System.out.println("postBody:");
-                    System.out.println(postBody);
-                }*/
-            }
-        }
-
-        return cars;
-    }
-
-    private void saveNewCarsOnly(List<Car> cars){
-
-        for(Car car : cars){
-            //checking if not a duplicate car
-            if (this.findByTitleAndYearMakeModel(car.getTitle(), car.getYearMakeModel()) == null){
-                logger.info("FOUND NEW CAR : \n" + car);
-                this.save(car);
-            } else {
-                logger.info("FOUND A DUPLICATE: \n" + car);
-            }
-        }
-
-    }
-
 
 }

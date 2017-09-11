@@ -46,7 +46,7 @@ public class Car extends AbstractEntity {
         this.postBody = postBody;
     }
 
-    public void setCarAttr(String prop){
+    public void setCarAttribute(String prop){
 
         //breaking down string formatted as "key: value" and saving value
         if (prop.contains("VIN:")){;

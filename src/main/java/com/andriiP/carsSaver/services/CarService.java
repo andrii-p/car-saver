@@ -23,5 +23,5 @@ public interface CarService {
 
     public void save(List<Car> cars);
 
-    public void updateViaRSS(String url);
+    public void updateCarsViaRSS(String url);
 }
