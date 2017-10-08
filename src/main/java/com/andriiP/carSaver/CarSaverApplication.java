@@ -4,12 +4,13 @@ import com.andriiP.carSaver.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 public class CarSaverApplication {
 
-	@Autowired
-	private CarService carService;
+	//@Autowired
+	//private CarService carService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CarSaverApplication.class, args);
@@ -20,5 +21,6 @@ public class CarSaverApplication {
 
 		carService.updateCarsViaRSS("https://denver.craigslist.org/search/cto?format=rss&hasPic=1&max_price=20000&min_auto_year=2012&postal=80228&query=subaru%20impreza&search_distance=75");
 	*/
+	//curl -X POST http://localhost:8080/api/processRSS -d "https://denver.craigslist.org/search/cto?format=rss&hasPic=1&max_price=20000&min_auto_year=2012&postal=80228&query=subaru%20impreza&search_distance=75" -H "Content-Type:text/plain"
 	}
 }

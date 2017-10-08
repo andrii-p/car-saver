@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CarService {
 
-    public Car findOne(Long id);
+    public Car findById(Long id);
 
     public List<Car> findAll();
 

@@ -44,7 +44,8 @@ public class CarServiceImpl implements CarService {
             links = getLinksFromRSS(rss);
             htmlFiles = getHTMLsFromLinks(links);
             cars = parseHTMLsAndGetCars(htmlFiles);
-            saveNewCarsOnly(cars);
+            cars = checkForDuplicates(cars);
+            save(cars);
         } catch (Exception e){
             logger.error("ERROR on either processing RSS feed, links or html files: ");
             logger.error("ERROR message:", e);
@@ -101,55 +102,33 @@ public class CarServiceImpl implements CarService {
                 String price = html.select("span.price").first() == null ? null : html.select("span.price").first().text();
                 String location = html.select("span.postingtitletext > small").first() == null ? null : html.select("span.postingtitletext > small").first().text();
 
-                if (location != null) {
-                    //removing parenthesis around
-                    location = location.substring(1);
-                    location = location.substring(0, location.length() - 1);
+                if (location != null) { //removing parenthesis around
+                    location = location.substring(1, location.length() - 1);
                 }
-                
+
                 car.setPrice(price);
                 car.setLocation(location);
+
                 cars.add(car);
-
-                //Tried to imitate mouse click on "showcontact" button to get the actual contact info. Not sure if really needed
-                /*Element aElem = html.select("a.showcontact").first();
-                System.out.println("contact link - " + aElem);
-
-                if (aElem != null) {
-                    String contactUrl = url.getProtocol() + "://" + url.getHost() + html.select("a.showcontact").attr("href");
-                    System.out.println("contactUrl - " + contactUrl);
-
-                    Document contactInfo = Jsoup.connect(contactUrl).get();
-                    System.out.println("contactInfo page:");
-                    System.out.println(contactInfo);
-
-                    Element body = contactInfo.getElementsByTag("body").first();
-                    System.out.println("body:");
-                    System.out.println(body.text());
-
-                } else {
-                    String postBody = html.getElementById("postingbody").text();
-                    System.out.println("postBody:");
-                    System.out.println(postBody);
-                }*/
             }
         }
         return cars;
     }
 
-    private void saveNewCarsOnly(List<Car> cars){
+    private List<Car> checkForDuplicates(List<Car> cars){
+        List<Car> newCars = new ArrayList<>();
         for(Car car : cars){
-            //checking if not a duplicate car
-            if (this.findByAdNameAndYearMakeModel(car.getAdName(), car.getYearMakeModel()) == null){
+            if (findByAdNameAndYearMakeModel(car.getAdName(), car.getYearMakeModel()) == null){
                 logger.info("FOUND NEW CAR : \n" + car);
-                this.save(car);
+                newCars.add(car);
             } else {
                 logger.info("FOUND A DUPLICATE: \n" + car);
             }
         }
+        return newCars;
     }
 
-    public Car findOne(Long id) {
+    public Car findById(Long id) {
         return carRepo.findOne(id);
     }
 

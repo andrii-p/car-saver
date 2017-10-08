@@ -16,9 +16,9 @@
   "author": "Andrii P",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/andrii-p/carsSaver"
+    "url": "https://github.com/andrii-p/car-saver"
   },
-  "homepage": "https://github.com/andrii-p/carsSaver",
+  "homepage": "https://github.com/andrii-p/car-saver",
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
