@@ -21,11 +21,6 @@ public class HomeController {
     private CarService carService;
     private Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(value = "/")
-    public String index() {
-        return "index";
-    }
-
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/api/processRSS", method = RequestMethod.POST, consumes = "text/plain")
     public void processRSS(@RequestBody String url){
