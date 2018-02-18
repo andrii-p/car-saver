@@ -6,6 +6,12 @@
     "type": "git",
     "url": "git@github.com:andrii-p/carsSaver"
   },
+  "scripts": {
+    "build": "webpack --progress",
+    "prestart": "npm run build",
+    "start": "httpster -d ./dist/ -p 3001",
+    "dev": "opener http://localhost:3001 & webpack-dev-server"
+  },
   "keywords": [
     "rest",
     "hateoas",
@@ -19,26 +25,6 @@
     "url": "https://github.com/andrii-p/car-saver"
   },
   "homepage": "https://github.com/andrii-p/car-saver",
-  "dependencies": {
-    "bootstrap": "3.3.7",
-    "httpster": "1.0.3",
-    "isomorphic-fetch": "2.2.1",
-    "prop-types": "15.6.0",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "react-icons": "2.2.5",
-    "react-redux": "5.0.6",
-    "react-router-dom": "4.2.2",
-    "redux": "3.7.2",
-    "rest": "1.3.1",
-    "uuid": "3.1.0"
-  },
-  "scripts": {
-    "build": "webpack --progress",
-    "prestart": "npm run build",
-    "start": "httpster -d ./dist/ -p 3000",
-    "dev": "opener http://localhost:3000 & webpack-dev-server"
-  },
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
@@ -56,5 +42,19 @@
     "url-loader": "0.6.2",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.7.1"
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "httpster": "1.0.3",
+    "isomorphic-fetch": "2.2.1",
+    "prop-types": "15.6.0",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "react-icons": "2.2.5",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "redux": "3.7.2",
+    "rest": "1.3.1",
+    "uuid": "3.1.0"
   }
 }

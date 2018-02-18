@@ -16,7 +16,7 @@ module.exports = {
     devServer: {
         inline: true,
         contentBase: './src/main/resources/static',
-        port: 3000
+        port: 3001
     },
     module: {
         rules: [
