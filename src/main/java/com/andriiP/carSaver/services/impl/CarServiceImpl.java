@@ -33,7 +33,7 @@ public class CarServiceImpl implements CarService {
         this.carRepo = carRepo;
     }
 
-    public void updateCarsViaRSS(String rss){
+    public void updateCarsViaRSS(String rss) {
         if (rss == null || rss.isEmpty()) return;
 
         List<String> links;
@@ -45,14 +45,14 @@ public class CarServiceImpl implements CarService {
             htmlFiles = getHTMLsFromLinks(links);
             cars = parseHTMLsAndGetCars(htmlFiles);
             cars = checkForDuplicates(cars);
-            save(cars);
-        } catch (Exception e){
+            saveCars(cars);
+        } catch (Exception e) {
             logger.error("ERROR on either processing RSS feed, links or html files: ");
             logger.error("ERROR message:", e);
         }
     }
 
-    private List<String> getLinksFromRSS(String rss) throws Exception{
+    private List<String> getLinksFromRSS(String rss) throws Exception {
         logger.info("Reading RSS feed : " + rss);
 
         URL RSSfeed = new URL(rss);
@@ -68,7 +68,7 @@ public class CarServiceImpl implements CarService {
         Document html;
         List<Document> htmlFiles = new ArrayList<>();
 
-        for (String link : links){
+        for (String link : links) {
             logger.info("Processing link : " + link);
             html = Jsoup.connect(link).get();
             htmlFiles.add(html);
@@ -115,10 +115,10 @@ public class CarServiceImpl implements CarService {
         return cars;
     }
 
-    private List<Car> checkForDuplicates(List<Car> cars){
+    private List<Car> checkForDuplicates(List<Car> cars) {
         List<Car> newCars = new ArrayList<>();
-        for(Car car : cars){
-            if (findByAdNameAndYearMakeModel(car.getAdName(), car.getYearMakeModel()) == null){
+        for (Car car : cars) {
+            if (findByAdNameAndYearMakeModel(car.getAdName(), car.getYearMakeModel()) == null) {
                 logger.info("FOUND NEW CAR : \n" + car);
                 newCars.add(car);
             } else {
@@ -128,22 +128,22 @@ public class CarServiceImpl implements CarService {
         return newCars;
     }
 
-    public Car findById(Long id) {
+    public Car getById(Long id) {
         return carRepo.findOne(id);
     }
 
-    public List<Car> findAll() {
+    public List<Car> getCars() {
         Iterable<Car> source = carRepo.findAll();
         List<Car> cars = new ArrayList<Car>();
         source.forEach(cars::add);
         return cars;
     }
 
-    public Car findByAdNameAndYearMakeModel(String adName, String yearMakeModel){
+    public Car findByAdNameAndYearMakeModel(String adName, String yearMakeModel) {
         return carRepo.findByAdNameAndYearMakeModel(adName, yearMakeModel);
     }
 
-    public long countCars() {
+    public long carsTotal() {
         return carRepo.count();
     }
 
@@ -151,11 +151,11 @@ public class CarServiceImpl implements CarService {
         return carRepo.exists(id);
     }
 
-    public void save(Car car) {
+    public void saveCar(Car car) {
         carRepo.save(car);
     }
 
-    public void save(List<Car> cars) {
+    public void saveCars(List<Car> cars) {
         carRepo.save(cars);
     }
 

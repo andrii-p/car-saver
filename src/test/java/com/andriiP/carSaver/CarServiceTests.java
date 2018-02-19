@@ -32,14 +32,14 @@ public class CarServiceTests {
     @Test
     public void findByIdPositive(){
         when(carRepo.findOne(anyLong())).thenReturn(new Car());
-        Car car = carService.findById(CAR_ID);
+        Car car = carService.getById(CAR_ID);
         assertNotNull(car);
     }
 
     @Test
     public void findByIdNegative(){
         when(carRepo.findOne(anyLong())).thenReturn(null);
-        Car car = carService.findById(99L);
+        Car car = carService.getById(99L);
         assertNull(car);
     }
 
@@ -49,14 +49,14 @@ public class CarServiceTests {
         cars.add(car1);
         cars.add(car2);
         when(carRepo.findAll()).thenReturn(cars);
-        List<Car> result = carService.findAll();
+        List<Car> result = carService.getCars();
         assertEquals(result.size(), 2);
     }
 
     @Test
     public void findAlldNegative(){
         when(carRepo.findAll()).thenReturn(new ArrayList<>());
-        List<Car> result = carService.findAll();
+        List<Car> result = carService.getCars();
         assertEquals(result.size(), 0);
     }
 }

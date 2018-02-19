@@ -17,7 +17,6 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false)
@@ -26,7 +25,6 @@ public abstract class AbstractEntity implements Serializable {
     /**
      * This field is used for auditory and logging purposes. It is populated by the system when an entity instance is created.
      */
-    @JsonIgnore
     @Column(name = "CREATED_AT", nullable = false)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -35,7 +33,6 @@ public abstract class AbstractEntity implements Serializable {
     /**
      * This field is used for auditory and logging purposes. It is populated by the system when an entity instance is modified.
      */
-    @JsonIgnore
     @Column(name = "MODIFIED_AT", nullable = false)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")

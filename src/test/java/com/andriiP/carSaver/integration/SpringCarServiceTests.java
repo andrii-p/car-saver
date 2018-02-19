@@ -48,7 +48,7 @@ public class SpringCarServiceTests {
 
     @Test
     public void findByIdPositive(){
-        carService.save(car2);
+        carService.saveCar(car2);
         Car car = carService.findByAdNameAndYearMakeModel("Ford Focus 1999", "1999 Ford Focus");
         assertNotNull(car);
     }

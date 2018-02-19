@@ -9,19 +9,19 @@ import java.util.List;
  */
 public interface CarService {
 
-    public Car findById(Long id);
+    public Car getById(Long id);
 
-    public List<Car> findAll();
+    public List<Car> getCars();
 
     public Car findByAdNameAndYearMakeModel(String adName, String yearMakeModel);
 
-    public long countCars();
+    public long carsTotal();
 
     public boolean exists(Long id);
 
-    public void save(Car car);
+    public void saveCar(Car car);
 
-    public void save(List<Car> cars);
+    public void saveCars(List<Car> cars);
 
     public void updateCarsViaRSS(String url);
 }
