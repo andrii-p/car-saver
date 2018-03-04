@@ -1,5 +1,18 @@
-export const testAction = () =>
+import C from "./constants";
+
+export const callingAPI = () =>
     ({
-        type: "TEST_ACTION",
-        text: "test"
+        type: C.CALLING_API
+    })
+
+export const fetchCarsSuccess = (cars) =>
+    ({
+        type: C.FETCH_CARS_SUCCESS,
+        payload: cars
+    })
+
+export const fetchCarsFailure = (error) =>
+    ({
+        type: C.FETCH_CARS_FAILURE,
+        payload: error
     })

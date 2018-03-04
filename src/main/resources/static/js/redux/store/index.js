@@ -1,6 +1,6 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import { carsReducer } from './reducers'
-import stateData from '../../data/cars.json'
+import thunk from 'redux-thunk';
 
 let console = window.console
 
@@ -21,28 +21,19 @@ const saver = store => next => action => {
     return result
 }
 
-// const storeFactory = (initialState=stateData) =>
-//     applyMiddleware(logger, saver)(createStore)(
-//         combineReducers({carsReducer}),
-//         (localStorage['redux-store']) ?
-//             JSON.parse(localStorage['redux-store']) :
-//             initialState
-//     )
+const initialState = localStorage['redux-store'] ?
+    JSON.parse(localStorage['redux-store']) :
+    {
+        isCallingAPI: false,
+        error: null,
+        cars: []
+    }
 
-const initialState = localStorage['redux-store'] || stateData
+const configureStore = () =>
+    createStore(
+        carsReducer,
+        initialState,
+        applyMiddleware(thunk, logger, saver)
+    )
 
-// const initialState = {
-//     isFetching: false,
-//     cars: []
-// }
-
-const store = createStore(
-    combineReducers({...carsReducer}),
-    initialState,
-    applyMiddleware(logger, saver)
-)
-
-console.log({carsReducer})
-console.log({...carsReducer})
-
-export default store
+export default configureStore
