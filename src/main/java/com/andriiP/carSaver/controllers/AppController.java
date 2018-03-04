@@ -16,25 +16,26 @@ import java.util.List;
  * Created by kurt on 6/18/17.
  */
 @RestController
-public class HomeController {
+@RequestMapping("/api")
+public class AppController {
 
     @Autowired
     private CarService carService;
-    private Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private Logger logger = LoggerFactory.getLogger(AppController.class);
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/consumeRSS", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
     public void processRSS(@RequestBody String url) {
-        logger.info(" > POST /consumeRSS");
+        logger.info(" > POST /api/consumeRSS");
 
         carService.updateCarsViaRSS(url);
 
-        logger.info(" < POST /consumeRSS");
+        logger.info(" < POST /api/consumeRSS");
     }
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Car> getCars() {
-        logger.info("GET /cars");
+        logger.info("GET /api/cars");
         return this.carService.getCars();
     }
 

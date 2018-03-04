@@ -1,21 +1,23 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './components/App'
-import '../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import storeFactory from './store'
+import configureStore from './redux/store'
+import { getCars } from './services/services'
 
-const store = storeFactory()
+const store = configureStore()
+
+store.dispatch(getCars())
 
 window.React = React
-window.store = store
 
 render(
     <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
             <App />
-        </HashRouter>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('react-container')
 )

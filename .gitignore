@@ -3,4 +3,5 @@ target/
 #!.mvn/wrapper/maven-wrapper.jar
 node_modules/
 *.properties
+src/main/resources/static/dist/
 

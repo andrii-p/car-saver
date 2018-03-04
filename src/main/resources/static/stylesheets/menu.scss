@@ -1,11 +1,5 @@
 nav.main-menu {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-
-  -webkit-flex-flow: row wrap;
   justify-content: flex-end;
 
   background-color: deepskyblue;
@@ -18,7 +12,6 @@ nav.main-menu {
   }
 
   a:hover {
-    background: darken(deepskyblue, 2%);
+    background: darken(dodgerblue, 2%);
   }
-
 }
