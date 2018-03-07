@@ -1,6 +1,9 @@
 {
   "cars": [
     {
+      "id": 1,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2012 Subaru Impreza",
       "price": "$15500",
       "location": "Thornton",
@@ -17,17 +20,12 @@
       "type": "hatchback",
       "postBody": "This 2012 Subaru Impreza is in wonderful condition, has custom leather seats and white pearl paint job with a sport premium Trim. For those who don't know, the Impreza is excellent on gas mileage and has wonderful life span as well as generally easy up keep. The car has AUX/USB hookups for music and phone built in, features a Bluetooth phone connection option, and has a great sound system (nothing custom). On top of that the car is AWD, so driving in the snow is a blast! This car is still mostly owned by the bank, so selling would go down with or at a financial institution. It's really quite easy if you're willing to take a loan, but we can go over details of course. Shoot me an email and I would be happy to chat with you! P.S. No low ball offers, you can try to scam me but it won't work and I am very experienced with cars so I wont be swindled. Thanks!",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/1"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/1"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 2,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2015 Subaru Impreza 2.0i Hatchback",
       "price": "$15000",
       "location": "Littleton, CO",
@@ -44,17 +42,12 @@
       "type": "hatchback",
       "postBody": "Student going back to school - MUST SELL - Price Reduced!!! This Impreza 2.0i comes with a 5-speed manual transmission, air conditioning, power windows, mirrors and doors, tilt and telescoping steering wheel, keyless entry and 4-speaker AM/FM/CD player with auxiliary and USB inputs, audio controls on steering wheel , 6.2 inch touch screen and Bluetooth audio streaming. Engine is a 148-horsepower 2.0-liter 4-cylinder, uses regular unleaded or mid-grade fuel. Safety equipment includes: ABS, Traction control, curtain airbags, passenger airbag, stability control, symmetrical all-wheel drive, in-dash clock, cruise control, daytime running lights, external temperature display, fuel economy EPA highway (mpg): 34 and EPA city (mpg): 25, intermittent window wipers, rear defogger, rear wiper, tachometer, tilt steering wheel, rear back up camera. Vehicle is current on all maintenance (brand new wiper blades, cabin and intake air filters, tires rotated and balanced, alignment, and oil change). There is minor cosmetic damage to the rear bumper from a small collision (under 5mph). A Carfax report is available upon request.",
       "notes": null,
-      "vin": "JF1GPAA63F9215871",
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/2"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/2"
-        }
-      }
+      "vin": "JF1GPAA63F9215871"
     },
     {
+      "id": 3,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "Subaru Impreza 2014",
       "price": "$11500",
       "location": null,
@@ -71,17 +64,12 @@
       "type": "sedan",
       "postBody": "Subaru Impreza 2014 with 60k miles for sale: 5-speed manual transmission, air conditioning power windows and doors 4-speaker AM/FM/CD player with auxiliary and USB inputs. fog lights AWD 2 Set of keys Good fuel economy ASKING 11,500 OR BEST OFFER Interested buyers only. Call or text Karla show contact info or Agustin show contact info . No calls/text after 10:00pm SE HABLA ESPANOL",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/3"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/3"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 4,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2013 Subaru Impreza Wagon Sport--Low Miles",
       "price": "$14000",
       "location": "Denver",
@@ -98,17 +86,12 @@
       "type": "wagon",
       "postBody": "2013 Subaru Impreza 2.0i Sport Premium Hatchback--Manual Transmission--Kelley Blue Very low mileage: 20,500 New Continental Contact Tires placed a year ago; 50K mile warranty and they only have 4100 miles All Wheel Drive Black, cloth interior with heated seats Winter package includes heated wipers and side mirrors Weathertech floor mats included: front, back, and cargo area CD Player, Bluetooth, USB charger, AUX input AC and heater work great",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/4"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/4"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 5,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2014 Subaru Impreza Sport Limited",
       "price": "$17500",
       "location": null,
@@ -125,17 +108,12 @@
       "type": "hatchback",
       "postBody": "2014 Subaru Impreza Sport Limited Excellent condition & Fully loaded! Only 21,xxx miles Leather & heated seats, back up camera, sunroof, Bluetooth, power everything, plus more! 17 wheels with new all season tires. Great Colorado car - fun, safe, and low maintenance. Awesome to drive in the snow. Low miles - drove to work and back, plus a few Colorado adventures. One owner, no accidents, title in hand. $17,500 OBO",
       "notes": null,
-      "vin": "JF1GPAS68E8301681",
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/5"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/5"
-        }
-      }
+      "vin": "JF1GPAS68E8301681"
     },
     {
+      "id": 6,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2014 Subaru Impreza 25xxx miles",
       "price": "$14000",
       "location": "Aurora",
@@ -152,17 +130,12 @@
       "type": "sedan",
       "postBody": "• 26,xxx miles • Manual transmission • AWD • New tires • New short block 2016 (dealer recalled for oil consumption under factory warranty) • Tinted windows • Weathertech floor mats and trunk liner ($300) • Single owner • Great condition",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/6"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/6"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 7,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "practically new 2017 Subaru Impreza 2.0i Premium with Subaru EyeSight",
       "price": "$18500",
       "location": "southeast Denver",
@@ -179,17 +152,12 @@
       "type": "wagon",
       "postBody": "This car has 2,200 miles on the odometer and is practically new and available for thousands less than you would pay at the dealer. CVT continuously variable automatically transmission with steering wheel paddle shifters. This car has the Subaru EyeSight safety system with autonomous braking, adaptive cruise, lane departure warning, and steering sensitive fog lamps. It has a 6.5 inch screen and all the bluetooth entertainment type options you expect from loaded Subaru. USB port, Heated cloth manual front seats, 16\" wheels. It comes with the full remainder of the 3 year/36k mile basic warranty, 5 year/60k mile powertrain warranty. It has a set of all weather floor mats plus the regular carpeted mats. It is so new it has not had an oil change. I have the original window sticker ($24,578) and all other paperwork. There is a small ding in the driver's door.",
       "notes": null,
-      "vin": "4S3GTAD65H3703095",
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/7"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/7"
-        }
-      }
+      "vin": "4S3GTAD65H3703095"
     },
     {
+      "id": 8,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2012 Subaru Impreza wagon Premium for sale",
       "price": "$14000",
       "location": "Denver",
@@ -206,17 +174,12 @@
       "type": "wagon",
       "postBody": "This vehicle doesn't get driven much so I've decided to sell it. It was purchased from Carmax and not driven more than a couple thousand miles since i purchased it. It's a great car and has no issues. I've been getting it serviced at Strictly Automotive over on Santa Fe Drive, in case you wanted to call them about it or have them inspect it. I'm willing to negotiate on the price but not by much. It's a solid car with a whole life ahead of it. No interior damage. No animal hair or funk and has had a garage parking spot the whole time I've owned it. The title still has a lien with the bank. So if you're seriously interested in purchasing it we will be heading to the bank to handle the lien and get the title. Just wanted to put that out there upfront. Feel free to email me if you have any questions.",
       "notes": null,
-      "vin": "JF1GPAB68CH217700",
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/8"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/8"
-        }
-      }
+      "vin": "JF1GPAB68CH217700"
     },
     {
+      "id": 9,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2015 Subaru Impreza 5000 miles!!! Premium package",
       "price": "$16250",
       "location": "Boulder",
@@ -233,17 +196,12 @@
       "type": "sedan",
       "postBody": "All wheel drive makes this the perfect Colorado snow car Premium package with alloy wheels, blue tooth, upgraded stereo Minimal use, 5200 miles Excellent condition Beautiful Jade color with tan interior Title in hand, one owner, Sedan",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/9"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/9"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 10,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2017 Subaru Impreza CVT 38 MPG",
       "price": "$18700",
       "location": "Denver",
@@ -260,17 +218,12 @@
       "type": "hatchback",
       "postBody": "My loss is your gain. Selling my 2017 Impreza hatchback in perfect condition. 11,500 miles (mostly highway; commute to Boulder from Denver). Asking 18,700 OBO. Clean title, no crashes, no mechanical issues. Carbide gray metallic. Made in Indiana, USA. Upgrades: -Subaru roof rack ($200 retail) -Yakima Frontloader bike mount with lock cores ($230 retail) -side cargo bags ($50) -footwell illumination kit (blue; $150 retail) -Subaru all-weather floor mats ($80) Standard features: -CVT - 38mpg highway -6.5\" Starlink touchscreen multimedia system with Bluetooth, Apple Car Play and Android Auto -backup camera -cargo tray -splash guards -tire pressure monitoring system -all-season Continental tires (still great tread, see pics and recent vehicle inspection) -Subaru standard floor mats, unopened in plastic -Cruise -Tilt/telescopic steering column -etc. Warranty includes: -3 years/36,000 miles basic -5 years/60,000 miles powertrain -5 years/unlimited mileage rust perforation -3 years/36,000 24/7 roadside assistance *Interior, exterior, and mechanical are in excellent condition, never any issues with anything. Just changed the oil and filter (full synthetic) at 11,331 miles. Multi-point inspection certified everything in good condition. All original sales sheets, manuals, etc. included. You'd pay over 23,000 for this configuration new at a dealer (factoring taxes). So basically you're getting a brand new car for thousands off retail, with the roof rack and extras. *I am happy to take of",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/10"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/10"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 11,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2015 Subaru Impreza 2.0i Premium",
       "price": "$14750",
       "location": "Parker",
@@ -287,17 +240,12 @@
       "type": "wagon",
       "postBody": "Time to let my wife's car go! Our loss is your gain! Car has about 44,500 miles. Heated Seats Huge back-up camera Paddle shifters for manual Roof Rails for all your toys! Options: Back-up Camera Automatic Headlights Bluetooth Connection All Wheel Drive Basic Information: Make: Subaru Model: Impreza Sport Model Year: 2015 Interior Color: Black Exterior Color: Black Body Type: mid-SUV Engine: Engine Description: 2.0L 4 Cylinder Engine Fuel Type: Gas DriveTrain: 4WD Type : Full-Time Driven Wheels: All-Wheel Drive Transmission: Automatic",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/11"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/11"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 12,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "Subaru Impreza 2015",
       "price": "$18500",
       "location": "N boulder",
@@ -314,17 +262,12 @@
       "type": "hatchback",
       "postBody": "Great condition. Very low miles (<14000). Simply don't need a car anymore. Goes great in snow and ice with Subaru's awd and being a hatchback has a lot of cargo room. Manual transmission. Great gas mileage. Please message me with any questions and interest!",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/12"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/12"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 13,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2014 Subaru Impreza",
       "price": "$12000",
       "location": "Centennial",
@@ -341,17 +284,12 @@
       "type": "sedan",
       "postBody": "Selling my Subaru Impreza with 37,000 miles. Been a great car but just bought an SUV to accommodate our newborn and family better. The vehicle has never been in an accident, is a non smoking vehicle, and is in very good shape. Please call or text with any questions. Clean title in hand. 9seven02192293",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/13"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/13"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 14,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "Clean 2014 Subaru Impreza sport premium",
       "price": "$16500",
       "location": "Woodland park",
@@ -368,17 +306,12 @@
       "type": "hatchback",
       "postBody": "I have owed this car since new. I have too many cars and need to get rid of something. Garaged about half the time. Low miles for a 2014. All maintenance done at heuberger. Seat covers on since new clear bra on hood and fendeee. Will need snow tires or new all season tires for winter. Still have a small line with chase so transaction of sale will be done through chase if cash or through your bank and chase if you're financing. I live outside woodland but could meet you in woodland park or someplace on the west side of the springs possibly. Email or text works best my phone doesn't work great at my house. 16500obo",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/14"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/14"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 15,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2012 Subaru Impreza",
       "price": "$5000",
       "location": null,
@@ -395,17 +328,12 @@
       "type": "hatchback",
       "postBody": "2012 Impreza Hatchback. Blue. 132k miles. New transmission at 130k (old one was recalled). 17? Sport tires with 40k left on warranty. Hail damage. Nothing wrong with car mechanically. Great gas milage. Never had any issues with car. Pictures available upon request.",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/15"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/15"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 16,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2013 Subaru Impreza Sport I.E.",
       "price": "$13000",
       "location": "Thornton",
@@ -422,17 +350,12 @@
       "type": "hatchback",
       "postBody": "I still owe $13,000 on a loan. You can pay cash or you would have to get a loan for that much. We go to the bank I pay off the loan, you get the title signed over to you. my 2013 Impreza Subaru. Great on gas. Runs good has 62,000 miles. I just don't need the car anymore I have two others. Call or text show contact info",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/16"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/16"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 17,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "Subaru Impreza 2015",
       "price": "$15000",
       "location": "Broomfield",
@@ -449,17 +372,12 @@
       "type": null,
       "postBody": "Used 2015 Subaru Impreza Sport Premium hatchback for sale by original owner. 44,000 miles. Selling due to relocation. 5 speed Manual Transmission, Bluetooth Factory Radio, Unused Roof Rails, Super Clean Interior, Ice Cold A/C, power windows/locks, premium wheels, carpet and additional all weather rubber floor mats, all services including oil changes performed by local dealership and up to date. Small scratch on drivers door and crack on windshield. If you would like to schedule an appointment to view and test drive shoot me an email or text.",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/17"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/17"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 18,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2015 Subaru Impreza Sport Premium",
       "price": "$15000",
       "location": "Broomfield, CO",
@@ -476,17 +394,12 @@
       "type": null,
       "postBody": "Used 2015 Subaru Impreza Sport Premium hatchback for sale by original owner. 44,000 miles. Selling due to relocation. 5 speed Manual Transmission, Super Clean Interior, Ice Cold A/C, power windows/locks, roof rails, premium wheels, carpet and additional all weather rubber floor mats, all services including oil changes performed by local dealership and up to date. Small scratch on drivers door and crack on windshield. If you would like to schedule an appointment to view and test drive shoot me an email or text.",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/18"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/18"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 19,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2013 Subaru Impreza Wagon for sale",
       "price": "$12000",
       "location": "Denver",
@@ -503,17 +416,12 @@
       "type": "wagon",
       "postBody": "I'm selling my 2013 Subaru Impreza Wagon. 2.0 liter 5 speed manual. 46,000 Miles for $12,000. I am the sole owner of the vehicle and it is is still under a transferable warranty and I have papers for all service that has been completed on it (all through the dealership where I purchased it - Shortline Subaru) I have had an uncountable number of great times with this car and I am looking to sell it to someone who will love it as much as I do. Let me know if you have any questions contact me on my cell or Email me. Additional Information: All Wheel Drive, Power Steering,4-Wheel Disc Brakes, Aluminum Wheels, Tires - Front Performance, Tires - Rear Performance, Temporary Spare Tire, Rear Spoiler, Automatic Headlights, Fog Lamps, Heated Mirrors, Power Mirror(s), Intermittent Wipers, Variable Speed Intermittent Wipers, AM/FM Stereo, CD Player, MP3 Player (AUX), HD Radio, Auxiliary Audio Input, Bluetooth Connection, Bucket Seats, Pass-Through Rear Seat, Rear Bench Seat, Floor Mats, Adjustable Steering Wheel, Steering Wheel Audio Controls, Leather Steering Wheel, Trip Computer, Power Windows, Power Door Locks, Cruise Control, Engine Immobilizer, Climate Control, A/C, Rear Defrost, Power Outlet, Driver Vanity Mirror, Passenger Vanity Mirror, Front Reading Lamps, Cargo Shade, ABS, Traction Control, Stability Control, Brake Assist, Daytime Running Lights, Driver Air Bag, Passenger Air Bag, Passenger Air Bag Sensor, Knee Air Bag, Front Side Air Bag, Front Head Air Bag, Rear Head Air Bag,",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/19"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/19"
-        }
-      }
+      "vin": null
     },
     {
+      "id": 20,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
       "adName": "2012 Subaru Impreza Sport Premium",
       "price": "$13500",
       "location": "Denver",
@@ -530,15 +438,579 @@
       "type": "hatchback",
       "postBody": "Selling my 2012 Subaru Impreza Sport Premium. I am the only owner and bought this new in 2012 from Groove Subaru in Englewood. It has been well maintained with recommended services and runs great. The manual transmission is excellent in the mountains, especially in the snow. The tires have plenty of life left on them, and partnered with the all wheel drive I have had no problems navigating the winters. It had the clutch replaced at 68,000 miles due to a broken throw-out bearing; has a lifetime warranty on the new clutch! It has a clean Carfax and I have the clean title in hand. It does have some cosmetic curb rash on the bumper and wheels as well as normal cosmetic wear for a 5 year old vehicle, but other than that it is in excellent condition. It has almost all highway miles and gets on average 32-33 mpg. I am also throwing in a Subaru roof full-frame bike rack by Yakima, if you are interested. 17\" Gunmetal Aluminum-Alloy Wheels Heated Reclining Front Bucket Seats Sport Fabric Upholstery Bluetooth Stereo with Steering Wheel Phone Control AM/FM Stereo w/Single-Disc CD Player 4-Wheel Disc Brakes 6 Speakers Air Conditioning Electronic Stability Control Front Bucket Seats Front Center Armrest Trip Computer Hill Start Assist (doesn't roll backwards for 3 seconds when off the brake) Bumpers: body-color CO legal limit window tint Heated Mirrors and Windshield All Weather Floor Mats Thanks for looking!",
       "notes": null,
-      "vin": null,
-      "_links": {
-        "self": {
-          "href": "http://localhost:8080/api/cars/20"
-        },
-        "car": {
-          "href": "http://localhost:8080/api/cars/20"
-        }
-      }
+      "vin": null
+    },
+    {
+      "id": 21,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
+      "adName": "2016 Subaru Impreza Sport Premium",
+      "price": "$14750",
+      "location": "Denver",
+      "yearMakeModel": "2016 subaru impreza",
+      "odometer": "53000",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": null,
+      "titleStatus": "lien",
+      "transmission": "manual",
+      "type": null,
+      "postBody": "2016 Impreza Sport Premium Wagon Manual Trans Cold Weather Package (heated wipers/seats) Bluetooth stereo/phone, Subaru Starlink New Tires New windshield 51K Good condition, a couple minor dings and scratches on hood. Car comes with factory cross bars. Full price offers will get my upgraded Yakima cross bars bars, farring, and ski racks. All maintenance records in hand. Maintained above & beyond factory O&M recommendations. This thing will take you where you need to go, and then some!",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 22,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
+      "adName": "2015 Subaru Impreza Sport",
+      "price": "$14000",
+      "location": "Denver, CO",
+      "yearMakeModel": "2015 Subaru impreza wagon",
+      "odometer": "40136",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "white",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": "hatchback",
+      "postBody": "For sale by private owner is a 2015 Subaru Impreza with Sport package (larger wheels/roof rails). The Impreza has cloth seat interior (heated front seats), fold down back seats (hatchback), and back-up camera. New Goodyear Triple Tread tires installed at 30,000 miles. Windows professionally tinted. Needing a larger car for additional gear, we are currently selling this one. Please see photos for damage on front right fender. Reduced price based on front right fender as well as minor-hail damage. Subaru Factory Warranty expires at 60,000 miles. Priced to sell and willing to negotiate! Please note, Manual Transmission.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 23,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
+      "adName": "2016 Subaru Impreza",
+      "price": "$16850",
+      "location": null,
+      "yearMakeModel": "2016 subaru impreza wagon",
+      "odometer": "4000",
+      "condition": "new",
+      "cylinders": "4 cylinders",
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "hatchback",
+      "postBody": "2016 Subaru Impreza on lease for another 18 mo. Buy out price is $16,850 or $17,500 with sales tax.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 24,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
+      "adName": "2014 Subaru Impreza Limited Deeply Discounted",
+      "price": "$14900",
+      "location": "Denver",
+      "yearMakeModel": "2014 subaru impreza 2.0i limited",
+      "odometer": "45000",
+      "condition": "like new",
+      "cylinders": null,
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": null,
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": null,
+      "postBody": "Well kept leather interior with heated seats, back up camera, gps, and sun roof. This car has been mechanically sounds and drives great in Colorado winters. I'm am offering it significantly discounted due to wanting to sell it fast! The private resell value is $17,500 and the dealer value is 18,500. I have a clean carfax that can be presented to perspective buyers. Engine 2.0L H-4 SMPI DOHC Trim 4D Sedan Limited Transmission Automatic Exterior Color Charcoal Interior Color: Black MPG City 27 MPG Highway 36 Seating Capacity: 5 Drivetrain: AWD",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 25,
+      "createdAt": 1507434491000,
+      "modifiedAt": 1507434491000,
+      "adName": "Subaru Impreza Limited 2014 Deeply Discounted for fast sale",
+      "price": "$14900",
+      "location": "Denver",
+      "yearMakeModel": "2014 subaru impreza",
+      "odometer": "44500",
+      "condition": "like new",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "black",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": null,
+      "postBody": "Well kept leather interior with heated seats, back up camera, gps, and sun roof. This car has been mechanically sounds and drives great in Colorado winters. I'm am offering it significantly discounted due to wanting to sell it fast! The private resell value is $17,500 and the dealer value is 18,500. I have a clean carfax that can be presented to perspective buyers. Engine 2.0L H-4 SMPI DOHC Trim 4D Sedan Limited Transmission Automatic Exterior Color Charcoal Interior Color: Black MPG City 27 MPG Highway 36 Seating Capacity: 5 Drivetrain: AWD",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 26,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2015 Subaru Impreza Sport Premium - 5-Speed",
+      "price": "$15295",
+      "location": "Black Hawk",
+      "yearMakeModel": "2015 Subaru Impreza Sport Premium",
+      "odometer": "24000",
+      "condition": null,
+      "cylinders": null,
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": null,
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": null,
+      "postBody": "2015 Subaru Impreza Sport Premium. 24k miles. 5-speed manual. Runs and drives great. Still under warranty! Clean Colorado title. Car looks nice. Interior is very clean. One local owner. Priced $1000 below NADA book value to sell! Come see it for yourself. Jon 7 2 0/ 8 2 2/ 2 8 8 4 Thanks for looking.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 27,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2015 Subaru Impreza Sport Premium - 5-Speed Manual",
+      "price": "$15295",
+      "location": "Black Hawk",
+      "yearMakeModel": "2015 Subaru Impreza Sport Premium",
+      "odometer": "24000",
+      "condition": null,
+      "cylinders": null,
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": null,
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": null,
+      "postBody": "2015 Subaru Impreza Sport Premium. 24k miles. 5-speed manual. Runs and drives great. Still under warranty! Clean Colorado title. Car looks nice. Interior is very clean. One local owner. Priced $1000 below NADA book value to sell! Come see it for yourself. Jon 7 2 0/ 8 2 2/ 2 8 8 4 Thanks for looking.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 28,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2015 Subaru Impreza Wagon",
+      "price": "$16000",
+      "location": null,
+      "yearMakeModel": "2015 Subaru Impreza",
+      "odometer": "28250",
+      "condition": "excellent",
+      "cylinders": null,
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": null,
+      "titleStatus": "lien",
+      "transmission": "automatic",
+      "type": null,
+      "postBody": "I am selling my 2015 Subaru Impreza Wagon for $16,000 or best offer. It is a gray four door Hatchback Sport Premium AT with 28,250 miles. STILL UNDER WARRANTY!!! I love this car and hate to see it go, but we don't need three cars. Please let me know if you are interested. Thank you!",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 29,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2013 Subaru Impreza",
+      "price": "$14500",
+      "location": "Fort Collins",
+      "yearMakeModel": "2013 subaru impreza",
+      "odometer": "52000",
+      "condition": "excellent",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "white",
+      "size": "full-size",
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "Hello there! I am selling a 2013 Subaru Impreza 2.0 Limited 4-door sedan. This car comes with AWD, bluetooth, cruise control, power locks, power windows, and remote key-less entry. Pearl white exterior with cream leather interior. Has 52,000 miles on it, and is in excellent condition. This car is fun to drive, beautiful to look at, and gets great gas mileage. If you have any question or are interested in scheduling a time to check the car out, call Royce at the number listed below. Thanks for looking!",
+      "notes": null,
+      "vin": "JF1GJAG67DH012025"
+    },
+    {
+      "id": 30,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 - 2.0i Sport Premium Wagon 4D",
+      "price": "$12099",
+      "location": "boulder",
+      "yearMakeModel": "2012 subaru impreza 2.0i premium",
+      "odometer": "83655",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "white",
+      "size": "mid-size",
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": "hatchback",
+      "postBody": "HOT BUY!! SINGLE OWNER- Non SMOKER NO ACCIDENTS 2.0i Sport Premium Wagon 4D White AWD 4-Cyl, 2.0 Liter Manual 5- Speed All Weather mats Traction Control Vehicle Dynamic Control ABS 4-wheel Anti-theft system Power door locks Power windows Cruise Control Power Steering Bluetooth Wireless AM/FM/CD Heated Seats Dual and Side Air Bags Alloy Wheels *Optional Roof Rack Crossbars and/or Ski Rack this lovely and healthy Impreza has had all of its oil changes at Subaru dealerships. Most recent service and oil change was February 6th 2018! --please email me if you are interested--",
+      "notes": null,
+      "vin": "JF1GPAL66CG205713"
+    },
+    {
+      "id": 31,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2015 Subaru Impreza 2.0i Sport Premium - Mint condition $17500 OBO",
+      "price": "$17500",
+      "location": "Orchard / tower",
+      "yearMakeModel": "2015 subaru impreza 2.0i premium",
+      "odometer": "19578",
+      "condition": "excellent",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "white",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "SUV",
+      "postBody": "I am selling my White Subaru Impreza 2.0i Sport Premium. Vehicle is garaged kept. Only done 19578 miles for the past 3 years. Excellent condition inside out. Motivated to sell but NO low balling, out of state shipment, scam and dealers. Only serious buyers. The location is near Smoky Hill Library. Asking $17500 - OBO Email me with your interest or reach me at Three 0 Three Nine 74 Five 2 5 Four.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 32,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2016 Subaru WRX, 34K miles, AWD, Rear Camera, Excellent",
+      "price": "$19950",
+      "location": "Centennial",
+      "yearMakeModel": "2016 subaru impreza sedan WRX",
+      "odometer": "34000",
+      "condition": "excellent",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "silver",
+      "size": "mid-size",
+      "titleStatus": "rebuilt",
+      "transmission": "manual",
+      "type": "sedan",
+      "postBody": "* 2016 Subaru WRX, Silver 4-door, Turbo 4-Cyl, 6-Speed ManualTransmission, * Like new, only 34K miles, AWD, Rear Camera, Excellent Condition, ** Priced at only $19,950 cash or $21,950 financed with $8K down, or will trade for Real Estate, Land, Condo, etc.",
+      "notes": null,
+      "vin": "JF1VA1B60G9816549"
+    },
+    {
+      "id": 33,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Subaru WRX, only 52k miles!",
+      "price": "$15995",
+      "location": "Omaha",
+      "yearMakeModel": "2013 Subaru Impreza WRX",
+      "odometer": "52000",
+      "condition": "excellent",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "blue",
+      "size": "mid-size",
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": "sedan",
+      "postBody": "Edit: I had so many people from Colorado message me about my Omaha ad, so I posted this in Denver. I'm located in Omaha, NE. If you're worried about making the trip, you can call absolutely any mechanic/dealership in Omaha and schedule a pre-purchase inspection. You pay for the inspection, I'll take the vehicle there, and then you can be sure it's in perfect condition before driving. Kelly blue book on this is $21,000.00 Badass car. Engine sounds so sexy. 0 to 60 MPH in 4.8 seconds, yet still manages to get 25mpg on the highway thanks to the 265-hp, 2.5-liter H-4 (premium turbo) engine. All wheel drive. This baby has been perfectly maintained. Manual! (it's a sports car). Nothing wrong with it. You can have it inspected by a mechanic. Selling, because I don't drive it as often anymore now that I have kids. $16,500 OBO. Thanks",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 34,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Subaru Impreza 2015 5 speed Hatchback",
+      "price": "$15000",
+      "location": null,
+      "yearMakeModel": "2015 Subaru Impreza",
+      "odometer": "50000",
+      "condition": "excellent",
+      "cylinders": null,
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "silver",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": null,
+      "postBody": "2015 Subaru Impreza 5 Speed Hatchback Sports Package. Great Colorado car all around. Handles amazing in the winter time. I lived in steamboat with this car and I never had an issue with the snow. The Impreza sports package comes with AWD, power windows/locks, fog lights, heated seats, AC, Bluetooth, cruise control, roof rack, hill assist. Always had oil changes and schedule maintenance done at the dealer ship. Continental control contact all season tires bought last year. Car always kept clean, no hail damage, one owner. Text me if interested 719-359-1nine4three",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 35,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 Subaru Outback AWD Wagon",
+      "price": "$9900",
+      "location": "Denver",
+      "yearMakeModel": "2012 subaru impreza outback sport",
+      "odometer": "113000",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "silver",
+      "size": "mid-size",
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "wagon",
+      "postBody": "2012 Subaru Outback with 113 000 miles Please call or text 72O 275 1143 4-Cyl, 2.5 Liter Automatic Transmission AWD ABS All power locks, mirrors and windows Cruise Control Power Steering Bluetooth Alloy wheels The car has some hail damage other than that runs and drives just perfect no issues whatsoever. Clean Title. Please call or text show contact info Ab Auto Corp",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 36,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2015 Subaru Impreza Sedan 22k mi Like New Conditio FINANCING AVAILABLE",
+      "price": "$15990",
+      "location": "NW Denver - Regis",
+      "yearMakeModel": "2015 subaru impreza",
+      "odometer": "22111",
+      "condition": "like new",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "white",
+      "size": "full-size",
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "2015 Subaru Impreza 4-Door Sedan FINANCING AVAILABLE!! Only 22,000 mi White exterior and tan interior Nearly new condition Gets excellent gas mileage and drives great in the snow with its all-wheel-drive",
+      "notes": null,
+      "vin": "jf1gjaa65fh008583"
+    },
+    {
+      "id": 37,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Subaru 2014",
+      "price": "$9000",
+      "location": null,
+      "yearMakeModel": "2014 subaru impreza",
+      "odometer": "46000",
+      "condition": "like new",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "green",
+      "size": "mid-size",
+      "titleStatus": "rebuilt",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "My Subaru 2014 for sale 9000$ obf 46000 mile new tires 4 w d perfect in snow for mor details my phone show contact info cash only and I don't need help to sealing my car",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 38,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2016 subaru impreza",
+      "price": "$15000",
+      "location": null,
+      "yearMakeModel": "2016 subaru impreza",
+      "odometer": "5500",
+      "condition": null,
+      "cylinders": null,
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": null,
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": null,
+      "postBody": "Subaru impreza in perfect conditions...clean tittle no issues at all....awd...5500 miles....hablo español...",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 39,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 Subaru Impreza Hatchback AWD 2.0i Sport Premium PZEV - Best Offer",
+      "price": "$12500",
+      "location": "Boulder, CO",
+      "yearMakeModel": "2012 Subaru Impreza",
+      "odometer": "36680",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "silver",
+      "size": "compact",
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "hatchback",
+      "postBody": "This is a great, AWD, very low maintenance vehicle! Mileage: 36,680 Fuel Economy: 30 mpg city/highway combined 2.0L, 4 cylinder, Automatic Continuously Variable Transmission (CVT) VIN: JF1GPAL68CH203682 One owner with clean title Bought new for $26,072.40 after taxes and fees (vehicle price was $22,755) Color: Silver Interior: Black cloth seats Condition: Fair/Good due to hail damage and minor paint scratches Tires: Winter tires currently on vehicle (may have 1 more season left) Spare Tires: All season tires (still in great condition) Features: 2 keys + 1 valet key + 2 remote starters Roof rack All-weather package (all-weather floor mats, heated front seats, heated side mirrors) Rear cargo mat Paddle shifters AM / FM / CD / Auxiliary / Bluetooth Cruise control Power locks / windows / mirrors",
+      "notes": null,
+      "vin": "JF1GPAL68CH203682"
+    },
+    {
+      "id": 40,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 Subaru Impreza Sedan",
+      "price": "$8000",
+      "location": "Belmar",
+      "yearMakeModel": "2012 subaru impreza",
+      "odometer": "86000",
+      "condition": null,
+      "cylinders": null,
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "red",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "Selling my 2012 Impreza. It's in good condition aside from some scratches on the rear (pictured) and a missing flood light cover, both of which are being fixed this week. 86k miles. Going for $8k obo.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 41,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2017 Subaru Impreza AWD",
+      "price": "$18000",
+      "location": "Lakewood",
+      "yearMakeModel": "2017 Subaru Impreza",
+      "odometer": "8700",
+      "condition": "like new",
+      "cylinders": null,
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "blue",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "wagon",
+      "postBody": "2017 Subaru Impreza for sale! 2.0i 4dr Wagon AWD (2.0L 4cyl) CVT Automatic Clean title, no accidents! City: 28 MPG Highway: 37 MPG Convenience Features: 1-touch down Driver vanity mirror Tilt steering wheel Air conditioning Front beverage holders Speed control Illuminated entry Rear door bins Telescoping steering wheel Rear beverage holders Power windows Passenger door bin Remote keyless entry Passenger vanity mirror Driver door bin 1-touch up Back-up Camera Entertainment Features: Primary LCD size: 6.5\" Bluetooth Seats and Trim: Max seating capacity: 5 Rear seats: bench Front seats: bucket Front center armrest Split folding rear seat Many more features, come check it out today! 8,700 miles Like new condition. Extremely clean and well maintained. Asking $18,000 OBO Please leave your name and number in your response.",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 42,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 Subaru Impreza WRX w/ New Clutch",
+      "price": "$15500",
+      "location": "Fairplay",
+      "yearMakeModel": "2012 subaru impreza sedan wrx",
+      "odometer": null,
+      "condition": null,
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": "mid-size",
+      "titleStatus": "clean",
+      "transmission": "manual",
+      "type": null,
+      "postBody": "Selling my 2012 Subaru WRX. Has 95,xxx miles. Runs and drives great. Snow tires are in decent shape. New Clutch put in by 5250 Perfomance with only about 2000 miles on it. Have receipt to prove clutch has been replaced. Asking $15,500 but cash talks. Text me at 9704zero6zero04two. Ryan ***I do NOT need help selling my vehicle!***",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 43,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "2012 Subaru wrx sti",
+      "price": "$17500",
+      "location": null,
+      "yearMakeModel": "2012 subaru impreza wrx sti",
+      "odometer": "63800",
+      "condition": "good",
+      "cylinders": "4 cylinders",
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "blue",
+      "size": null,
+      "titleStatus": "rebuilt",
+      "transmission": "manual",
+      "type": "sedan",
+      "postBody": "Text me at. show contact info The car runs great. There are no problems. Sadly I have to let go There are a couple of things done •nameless performance catback (1000$) •aem cold air intake(250$) •short shifter •mudflaps •rain visors •tinited windows •Perrin alternator cover And a couple of other small things but it's all adds up. There are two scratches on the car as shown in the pictures",
+      "notes": null,
+      "vin": null
+    },
+    {
+      "id": 44,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Subaru Impreza 2013 AWD, Bluetooth stereo, Brand New Tires * *",
+      "price": "$8500",
+      "location": "Northfield, CO",
+      "yearMakeModel": "2013 Subaru Impreza",
+      "odometer": "81000",
+      "condition": "salvage",
+      "cylinders": "4 cylinders",
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": null,
+      "titleStatus": "salvage",
+      "transmission": "automatic",
+      "type": null,
+      "postBody": "My family is looking to increase the size of our vehicle so we are parting with this one. The car was purchased in August of 2016 and driven a little over 12,000 miles. Since then, I have purchased a brand new computer (central control module), have replaced the struts (both are brand new), new brakes in front, and kept up with maintenance. I have put in brand new rubber mats and will provide the carpet ones as well. I will include the bike rack if you are interested in it. This car is all wheel drive and has a Bluetooth stereo. There is some slight body damage, nothing major, and the car makes a noise occasionally when going over a bump on front driver side. 3 mechanics have assured me that this does not affect anything mechanically or compromise safety. I recently just put brand new Hancock tires and had older Subaru rims professionally painted/powder coated and installed. I have driven around 50 miles on the tires so they are basically brand new. I am selling this vehicle as is. No refunds. Serious buyers only. Cash only. Here is AutoSource's branded title description: \"What is a branded title? \"Is it a salvage vehicle? I've heard that all salvage vehicles have to be damaged beyond the point of repair or more than 75% of the current value of the vehicle.\" For the most part, a \"salvage\" title means that the vehicle could be repaired, but an insurance company instead chose to write off their losses and simply replace it with a new one. A branded title car is a vehicle sold t",
+      "notes": null,
+      "vin": "JF1GJAA66DH003020"
+    },
+    {
+      "id": 45,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Subaru Impreza P 4D Sedan 2.0i Premium",
+      "price": "$10500",
+      "location": "Arvada",
+      "yearMakeModel": "2012 subaru impreza",
+      "odometer": "68000",
+      "condition": "like new",
+      "cylinders": "4 cylinders",
+      "drive": "4wd",
+      "fuel": "gas",
+      "paintColor": "red",
+      "size": "full-size",
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "Year : 2012 Make : _Subaru_ Model : _Impreza_ Exterior Color : Brilliant Red Interior Color : Black Drive : AWD Transmission : CVT LINEARTRONIC Engine : 2.0L 4-Cylinder DOHC 16V VIN Number : call Miles : 68000 Please call for more information show contact info Alex",
+      "notes": null,
+      "vin": "Call"
+    },
+    {
+      "id": 46,
+      "createdAt": 1519081599000,
+      "modifiedAt": 1519081599000,
+      "adName": "Hyundai Elantra GLS limited",
+      "price": "$8499",
+      "location": "Denver, lakewood",
+      "yearMakeModel": "2013 hyundai elantra",
+      "odometer": "85000",
+      "condition": "excellent",
+      "cylinders": "4 cylinders",
+      "drive": null,
+      "fuel": "gas",
+      "paintColor": "grey",
+      "size": null,
+      "titleStatus": "clean",
+      "transmission": "automatic",
+      "type": "sedan",
+      "postBody": "Navigation System / 6 Speakers / AM/FM radio: XM / CD player MP3 decoder / Radio: Autonet AM/FM/CD/MP3 w/SiriusXM Satellite / Steering Wheel Audio Controls / Air Conditioning Manual Air Conditioning / Rear Defroster / Rear window defroster / 60/40 Split Fold-Down Rear Seatback Bluetooth/Hands-Free Phone System / Power driver seat / Power steering / Power windows Power Windows w/Driver's Auto-Down / Remote keyless entry / Steering wheel mounted audio controls / Tire Pressure Monitoring System Speed-sensing steering / Traction control / 4-Wheel Disc Brakes / ABS brakes ABS w/Electronic Brake Force Distribution (EBD) / Dual front impact airbags / Dual front side impact airbags / Front anti-roll bar Front wheel independent suspension / Low tire pressure warning / Motor Driven Power Steering (MDPS) / Occupant sensing airbag Overhead airbag / Power Door Locks / Power Glass Tilt & Slide Sunroof / Power moonroof Brake assist / Electronic Stability Control / Traction Control System / Vehicle Stability Management Delay-off headlights / Front Fog Lights / Front fog lights / Advanced Dual Front AirbagsPanic alarm / Remote Keyless Entry System w/Alarm / Security system / Speed controlSteering Wheel Mounted Cruise Control / Black Chrome Grille / Bodycolor Door Handles & Mirrors / Bumpers: body-colorDaytime Running Lights / Dual Heated Power Outside Mirrors / Heated door mirrors / Limited BadgePower door mirrors / Side Mirrors w/Integrated Turn Signals / Turn signal indicator mirrors / Wind",
+      "notes": null,
+      "vin": null
     }
   ]
 }
