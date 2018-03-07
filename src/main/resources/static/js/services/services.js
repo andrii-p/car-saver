@@ -1,7 +1,7 @@
 import {callingAPI, fetchCarsSuccess, fetchCarsFailure} from '../redux/modules/actions'
 import stateData from '../../data/cars.json'
 
-export function getCars() {
+export const getCars = () => {
     return (dispatch) => {
 
         dispatch(callingAPI());

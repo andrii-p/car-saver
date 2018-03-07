@@ -1,37 +1,35 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
-import { carsReducer } from './reducers'
+import {createStore, applyMiddleware} from 'redux';
+import rootReducer from './rootReducer';
 import thunk from 'redux-thunk';
 
-let console = window.console
+let console = window.console;
 
 const logger = store => next => action => {
-    let result
-    console.groupCollapsed("dispatching", action.type)
-    console.log('prev state', store.getState())
-    console.log('action', action)
-    result = next(action)
-    console.log('next state', store.getState())
-    console.groupEnd()
-    return result
+    let result;
+    console.groupCollapsed("dispatching", action.type);
+    console.log('prev state', store.getState());
+    console.log('action', action);
+    result = next(action);
+    console.log('next state', store.getState());
+    console.groupEnd();
+    return result;
 }
 
 const saver = store => next => action => {
-    let result = next(action)
-    localStorage['redux-store'] = JSON.stringify(store.getState())
-    return result
+    let result = next(action);
+    localStorage['redux-store'] = JSON.stringify(store.getState());
+    return result;
 }
 
-const initialState = localStorage['redux-store'] ?
-    JSON.parse(localStorage['redux-store']) :
-    {
-        isCallingAPI: false,
-        error: null,
-        cars: []
-    }
+const initialState = {
+    isCallingAPI: false,
+    error: null,
+    cars: []
+};
 
 const configureStore = () =>
     createStore(
-        carsReducer,
+        rootReducer,
         initialState,
         applyMiddleware(thunk, logger, saver)
     )

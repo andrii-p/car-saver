@@ -1,4 +1,6 @@
-const CarRow = ({car}) =>
+import {withRouter} from 'react-router-dom'
+
+const CarRow = ({car, history}) =>
     <tr>
         <td>{car.adName}</td>
         <td>{car.price}</td>
@@ -6,9 +8,11 @@ const CarRow = ({car}) =>
         <td>{car.odometer}</td>
         <td>{car.condition}</td>
         <td>
-            <button className="btn btn-success">Details</button>
+            <button className="btn btn-success"
+                    onClick={() => history.push(`/${car.id}`)}>Details
+            </button>
         </td>
 
     </tr>
 
-export default CarRow
+export default withRouter(CarRow)
