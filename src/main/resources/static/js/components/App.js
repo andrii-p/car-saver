@@ -1,7 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
-import {CarsContainer, CarContainer} from './containers'
+import {CarsContainer, CarContainer, PostFormContainer} from './containers'
 import Menu from "./ui/Menu";
-import Test from './ui/Test'
 import Whoops404 from './ui/Whoops404'
 import '../../stylesheets/app.scss'
 
@@ -10,8 +9,8 @@ const App = () =>
         <Route component={Menu} />
         <Switch>
             <Route exact path="/" component={CarsContainer}/>
-            <Route exact path="/:id" component={CarContainer}/>
-            <Route path="/cars" component={Test}/>
+            <Route exact path="/cars/:id" component={CarContainer}/>
+            <Route exact path="/postRss" component={PostFormContainer}/>
             <Route component={Whoops404} />
         </Switch>
     </div>

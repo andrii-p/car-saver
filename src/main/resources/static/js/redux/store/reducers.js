@@ -25,6 +25,17 @@ export const carsReducer = (state = initialState, action) => {
                 isCallingAPI: false,
                 error: action.payload
             };
+        case C.POST_RSS_SUCCESS :
+            return {
+                ...state,
+                isCallingAPI: false
+            };
+        case C.POST_RSS_FAILURE :
+            return {
+                ...state,
+                isCallingAPI: false,
+                error: action.payload
+            };
         default:
             return state;
     }

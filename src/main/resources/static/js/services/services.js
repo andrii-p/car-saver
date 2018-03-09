@@ -1,4 +1,4 @@
-import {callingAPI, fetchCarsSuccess, fetchCarsFailure} from '../redux/modules/actions'
+import {callingAPI, fetchCarsSuccess, fetchCarsFailure, postRssSuccess} from '../redux/modules/actions'
 import stateData from '../../data/cars.json'
 
 export const getCars = () => {
@@ -22,5 +22,22 @@ export const getCars = () => {
         //         dispatch(fetchCarsSuccess(response))
         //     })
 
+    }
+}
+
+export const postRss = (rss) => {
+    return (dispatch) => {
+
+        dispatch(callingAPI());
+
+        if (rss) {
+            setTimeout(() => {
+                dispatch(postRssSuccess());
+            }, 3000);
+        } else {
+            setTimeout(() => {
+                dispatch(postRssSuccess());
+            }, 3000);
+        }
     }
 }

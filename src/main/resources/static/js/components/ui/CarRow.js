@@ -9,7 +9,7 @@ const CarRow = ({car, history}) =>
         <td>{car.condition}</td>
         <td>
             <button className="btn btn-success"
-                    onClick={() => history.push(`/${car.id}`)}>Details
+                    onClick={() => history.push(`/cars/${car.id}`)}>Details
             </button>
         </td>
 
