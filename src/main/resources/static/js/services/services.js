@@ -8,7 +8,7 @@ export const getCars = () => {
 
         setTimeout(() => {
             dispatch(fetchCarsSuccess(stateData.cars));
-        }, 3000);
+        }, 1000);
 
 
         // fetch("/api/cars")
@@ -30,14 +30,26 @@ export const postRss = (rss) => {
 
         dispatch(callingAPI());
 
-        if (rss) {
-            setTimeout(() => {
-                dispatch(postRssSuccess());
-            }, 3000);
-        } else {
-            setTimeout(() => {
-                dispatch(postRssSuccess());
-            }, 3000);
-        }
+        // if (rss) {
+        //     setTimeout(() => {
+        //         dispatch(postRssSuccess());
+        //     }, 3000);
+        // } else {
+        //     setTimeout(() => {
+        //         dispatch(postRssSuccess());
+        //     }, 3000);
+        // }
+
+        fetch("/api/consumeRSS", {
+            method: 'POST',
+            body: rss
+        }).then(res => {
+            if (res.status === 201) {
+                dispatch(postRssSuccess())
+            }
+
+        }).catch(error => {
+
+        })
     }
 }

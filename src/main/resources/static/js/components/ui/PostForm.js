@@ -13,7 +13,7 @@ class PostForm extends Component {
 
     submitDefault(e) {
         e.preventDefault();
-        this.props.postRss();
+        this.props.postRss(" ");
     }
 
     submit(e) {
@@ -38,7 +38,7 @@ class PostForm extends Component {
                     <div className="form-group">
                         <label>Process default RSS:</label>
                     </div>
-                    <button className="btn btn-success">Submit</button>
+                    <button className="btn btn-success" onClick={this.submitDefault}>Submit</button>
                 </div>
 
                 <div>
