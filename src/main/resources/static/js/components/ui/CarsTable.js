@@ -1,17 +1,8 @@
 import PropTypes from 'prop-types'
 import CarRow from './CarRow'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner'
-import '../../../stylesheets/spinner.scss'
+import Spinner from './Spinner'
 
 const CarsTable = ({cars = [], isCallingAPI = false}) => {
-
-    const spinner = (
-        <div className="spinner">
-            <FontAwesomeIcon icon={faSpinner} pulse size="5x"/>
-        </div>
-
-    )
 
     const carsList = (
         <div>
@@ -43,7 +34,7 @@ const CarsTable = ({cars = [], isCallingAPI = false}) => {
 
     return (
         isCallingAPI ?
-            spinner
+            <Spinner/>
             :
             carsList
     )

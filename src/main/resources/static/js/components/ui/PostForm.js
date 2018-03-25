@@ -1,7 +1,5 @@
 import {Component} from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner'
-import '../../../stylesheets/spinner.scss'
+import Spinner from './Spinner'
 
 class PostForm extends Component {
 
@@ -24,13 +22,6 @@ class PostForm extends Component {
 
     render() {
         const {isCallingAPI} = this.props;
-
-        const spinner = (
-            <div className="spinner">
-                <FontAwesomeIcon icon={faSpinner} pulse size="5x"/>
-            </div>
-
-        )
 
         const page = (
             <div className="container">
@@ -55,7 +46,7 @@ class PostForm extends Component {
 
         return (
             isCallingAPI ?
-                spinner
+                <Spinner/>
                 :
                 page
         )
