@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import {carsReducer} from "./reducers";
+import {callingAPIReducer, carsReducer, userReducer} from "./reducers";
 
 const rootReducer = combineReducers({
-    carsReducer
+    carsReducer,
+    user: userReducer,
+    isCallingAPI: callingAPIReducer
 });
 
 export default rootReducer;

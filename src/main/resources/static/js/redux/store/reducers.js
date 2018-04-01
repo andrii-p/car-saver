@@ -1,41 +1,66 @@
 import C from '../modules/constants';
 
-const initialState = {
-    isCallingAPI: false,
+const carsInitialState = {
     error: null,
     cars: []
-};
+}
 
-export const carsReducer = (state = initialState, action) => {
+export const carsReducer = (state = carsInitialState, action) => {
     switch (action.type) {
-        case C.CALLING_API :
-            return {
-                ...state,
-                isCallingAPI: true
-            };
         case C.FETCH_CARS_SUCCESS :
             return {
                 ...state,
-                isCallingAPI: false,
                 cars: action.payload
             };
         case C.FETCH_CARS_FAILURE :
             return {
                 ...state,
-                isCallingAPI: false,
                 error: action.payload
             };
         case C.POST_RSS_SUCCESS :
             return {
-                ...state,
-                isCallingAPI: false
+                ...state
             };
         case C.POST_RSS_FAILURE :
             return {
                 ...state,
-                isCallingAPI: false,
                 error: action.payload
             };
+        default:
+            return state;
+    }
+}
+
+const userInitialState = {
+    isAuthenticated: false,
+    username: null
+}
+
+export const userReducer = (state = userInitialState, action) => {
+    switch (action.type) {
+        case C.LOGIN_SUCCESS :
+            return {
+                ...state,
+                isAuthenticated: true,
+                username: action.username
+            };
+        case C.LOGIN_FAILURE :
+            return {
+                ...state,
+                isAuthenticated: false,
+                username: action.username
+            };
+        default:
+            return state;
+    }
+}
+
+export const callingAPIReducer = (state = false, action) => {
+    switch (action.type) {
+        case C.CALLING_API :
+            return true;
+        case C.FINISHED_CALLING_API :
+            return false;
         default:
             return state;
     }

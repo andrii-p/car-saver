@@ -1,17 +1,22 @@
 import {connect} from 'react-redux'
-import CarsTable from './ui/CarsTable'
+import Home from './ui/Home'
 import CarDetails from './ui/CarDetails'
 import PostForm from './ui/PostForm'
 import {findById} from "../lib/array-helpers";
-import { postRss } from "../services/services";
+import {authenticate, postRss} from "../services/services";
 
-export const CarsContainer = connect(
+export const HomeContainer = connect(
     state =>
         ({
             cars: state.carsReducer.cars,
-            isCallingAPI: state.carsReducer.isCallingAPI
+            isCallingAPI: state.isCallingAPI,
+            user: state.user
+        }),
+    dispatch =>
+        ({
+            authenticate: (username, password) => dispatch(authenticate(username, password))
         })
-)(CarsTable)
+)(Home)
 
 export const CarContainer = connect(
     (state, props) =>
@@ -23,7 +28,7 @@ export const CarContainer = connect(
 export const PostFormContainer = connect(
     state =>
         ({
-            isCallingAPI: state.carsReducer.isCallingAPI
+            isCallingAPI: state.isCallingAPI
         }),
     dispatch =>
         ({
