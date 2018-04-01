@@ -1,6 +1,6 @@
 const Whoops404 = ({ location }) =>
     <div className="whoops-404">
-        <h1>Whoops cannot find resource at '{location.pathname}'</h1>
+        <h1>Resource at '{location.pathname}' can't be found or under development</h1>
     </div>
 
 export default Whoops404

@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 
-const CarRow = ({car, history}) =>
+const CarRow = ({car = {}, history}) =>
     <tr>
         <td>{car.adName}</td>
         <td>{car.price}</td>
@@ -14,5 +15,9 @@ const CarRow = ({car, history}) =>
         </td>
 
     </tr>
+
+CarRow.propTypes = {
+    car: PropTypes.object.isRequired
+}
 
 export default withRouter(CarRow)

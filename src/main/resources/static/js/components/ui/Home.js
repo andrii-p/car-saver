@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import CarsTable from './CarsTable'
+import PropTypes from 'prop-types'
 import Spinner from './Spinner'
 
 class Home extends Component {
@@ -18,7 +19,7 @@ class Home extends Component {
     render() {
         const {cars, isCallingAPI, user} = this.props;
 
-        const form = (
+        const loginForm = (
             <div className="container">
                 <form class="form-inline" onSubmit={this.authenticate}>
                     <label for="username">Username</label>
@@ -39,9 +40,21 @@ class Home extends Component {
                 user.isAuthenticated ?
                     <CarsTable cars={cars}/>
                     :
-                    form
+                    loginForm
         )
     }
+}
+
+Home.propTypes = {
+    cars: PropTypes.array.isRequired,
+    isCallingAPI: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired
+}
+
+Home.defaultProps = {
+    cars: [],
+    isCallingAPI: false,
+    user: {}
 }
 
 export default Home

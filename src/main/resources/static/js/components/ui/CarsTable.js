@@ -32,7 +32,7 @@ const CarsTable = ({cars = []}) =>
     </div>
 
 CarsTable.propTypes = {
-    cars: PropTypes.array
+    cars: PropTypes.array.isRequired
 }
 
 export default CarsTable

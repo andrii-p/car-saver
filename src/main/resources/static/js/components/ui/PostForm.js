@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import PropTypes from 'prop-types'
 import Spinner from './Spinner'
 
 class PostForm extends Component {
@@ -51,6 +52,16 @@ class PostForm extends Component {
                 page
         )
     }
+}
+
+PostForm.propTypes = {
+    isCallingAPI: PropTypes.bool.isRequired,
+    postRss: PropTypes.func.isRequired
+}
+
+PostForm.defaultProps = {
+    isCallingAPI: false,
+    postRss: () => {}
 }
 
 export default PostForm
