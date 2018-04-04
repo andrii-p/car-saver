@@ -2,6 +2,7 @@ import {Component} from 'react'
 import CarsTable from './CarsTable'
 import PropTypes from 'prop-types'
 import Spinner from './Spinner'
+import '../../../stylesheets/login-form.scss'
 
 class Home extends Component {
 
@@ -20,15 +21,25 @@ class Home extends Component {
         const {cars, isCallingAPI, user} = this.props;
 
         const loginForm = (
-            <div className="container">
-                <form class="form-inline" onSubmit={this.authenticate}>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" ref="_username" name="username"/>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" ref="_password" name="password"/>
-                    <div class="form-actions">
-                        <button type="submit" class="btn">Log in</button>
+            <div className="login-form">
+                <form onSubmit={this.authenticate}>
+                    <div className="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" className='form-control' id="username" ref="_username" name="username"/>
                     </div>
+
+                    <div className="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" className='form-control' id="password" ref="_password" name="password"/>
+                    </div>
+
+                    {user.username != null &&
+                    <div className="alert alert-danger form-group">
+                        Invalid username or password
+                    </div>
+                    }
+
+                    <button type="submit" className="btn center-block">Log in</button>
                 </form>
             </div>
         )
@@ -38,7 +49,7 @@ class Home extends Component {
                 <Spinner/>
                 :
                 user.isAuthenticated ?
-                    <CarsTable cars={cars}/>
+                    <CarsTable cars={cars.data}/>
                     :
                     loginForm
         )
@@ -46,13 +57,13 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-    cars: PropTypes.array.isRequired,
+    cars: PropTypes.object.isRequired,
     isCallingAPI: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired
 }
 
 Home.defaultProps = {
-    cars: [],
+    cars: {},
     isCallingAPI: false,
     user: {}
 }

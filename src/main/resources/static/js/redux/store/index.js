@@ -21,16 +21,9 @@ const saver = store => next => action => {
     return result;
 }
 
-const initialState = {
-    isCallingAPI: false,
-    error: null,
-    cars: []
-};
-
 const configureStore = () =>
     createStore(
         rootReducer,
-        initialState,
         applyMiddleware(thunk, logger, saver)
     )
 

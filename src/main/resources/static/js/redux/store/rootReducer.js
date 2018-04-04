@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {callingAPIReducer, carsReducer, userReducer} from "./reducers";
 
 const rootReducer = combineReducers({
-    carsReducer,
+    cars: carsReducer,
     user: userReducer,
     isCallingAPI: callingAPIReducer
 });

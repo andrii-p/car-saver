@@ -1,12 +1,11 @@
 import {Route, Switch} from 'react-router-dom'
-import {CarContainer, HomeContainer, PostFormContainer} from './containers'
-import Menu from "./ui/Menu";
+import {CarContainer, HomeContainer, MenuContainer, PostFormContainer} from './containers'
 import Whoops404 from './ui/Whoops404'
 import '../../stylesheets/app.scss'
 
 const App = () =>
     <div className="app">
-        <Route component={Menu}/>
+        <Route component={MenuContainer}/>
         <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route exact path="/cars/:id" component={CarContainer}/>

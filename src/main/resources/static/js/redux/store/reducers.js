@@ -1,8 +1,9 @@
 import C from '../modules/constants';
 
 const carsInitialState = {
-    error: null,
-    cars: []
+    data: [],
+    error: null
+
 }
 
 export const carsReducer = (state = carsInitialState, action) => {
@@ -10,7 +11,7 @@ export const carsReducer = (state = carsInitialState, action) => {
         case C.FETCH_CARS_SUCCESS :
             return {
                 ...state,
-                cars: action.payload
+                data: action.payload
             };
         case C.FETCH_CARS_FAILURE :
             return {
@@ -42,13 +43,13 @@ export const userReducer = (state = userInitialState, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                username: action.username
+                username: action.payload
             };
         case C.LOGIN_FAILURE :
             return {
                 ...state,
                 isAuthenticated: false,
-                username: action.username
+                username: action.payload
             };
         default:
             return state;

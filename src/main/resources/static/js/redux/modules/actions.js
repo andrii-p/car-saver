@@ -36,11 +36,11 @@ export const postRssFailure = (error) =>
 export const loginSuccess = (username) =>
     ({
         type: C.LOGIN_SUCCESS,
-        username
+        payload: username
     })
 
 export const loginFailure = (username) =>
     ({
         type: C.LOGIN_FAILURE,
-        username
+        payload: username
     })

@@ -11,6 +11,13 @@ nav.main-menu {
     color: white;
   }
 
+  #username {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: black;
+  }
+
   a:hover {
     background: darken(dodgerblue, 2%);
   }
