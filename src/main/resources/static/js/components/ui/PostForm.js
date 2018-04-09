@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
 import Spinner from './Spinner'
+import '../../../stylesheets/input-form-common.scss'
 
 class PostForm extends Component {
 
@@ -25,23 +26,22 @@ class PostForm extends Component {
         const {isCallingAPI} = this.props;
 
         const page = (
-            <div className="container">
-                <div class="form-inline">
-                    <div className="form-group">
+            <div className="input-form-common">
+                <form>
+                    <div className="form-group text-center">
                         <label>Process default RSS:</label>
                     </div>
-                    <button className="btn btn-success" onClick={this.submitDefault}>Submit</button>
-                </div>
+                    <div className="form-group">
+                        <button className="btn btn-primary center-block" onClick={this.submitDefault}>Submit</button>
+                    </div>
 
-                <div>
-                    <form class="form-inline" onSubmit={this.submit}>
-                        <div className="form-group">
-                            <label>Process custom RSS:</label>
-                            <input class="form-control" ref="_rss" type="text"/>
-                        </div>
-                        <button className="btn btn-success">Submit</button>
-                    </form>
-                </div>
+
+                    <div className="form-group text-center">
+                        <label>Process custom RSS:</label>
+                        <input class="form-control" ref="_rss" type="text"/>
+                    </div>
+                    <button className="btn btn-primary center-block" onClick={this.submit}>Submit</button>
+                </form>
             </div>
         )
 
@@ -61,7 +61,8 @@ PostForm.propTypes = {
 
 PostForm.defaultProps = {
     isCallingAPI: false,
-    postRss: () => {}
+    postRss: () => {
+    }
 }
 
 export default PostForm

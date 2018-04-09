@@ -2,7 +2,7 @@ import {Component} from 'react'
 import CarsTable from './CarsTable'
 import PropTypes from 'prop-types'
 import Spinner from './Spinner'
-import '../../../stylesheets/login-form.scss'
+import '../../../stylesheets/input-form-common.scss'
 
 class Home extends Component {
 
@@ -21,7 +21,7 @@ class Home extends Component {
         const {cars, isCallingAPI, user} = this.props;
 
         const loginForm = (
-            <div className="login-form">
+            <div className="input-form-common">
                 <form onSubmit={this.authenticate}>
                     <div className="form-group">
                         <label for="username">Username</label>
