@@ -28,6 +28,12 @@ public class AppController {
     public void processRSS(@RequestBody String url) {
         logger.info(" > POST /api/consumeRSS");
 
+        String defaultRSS = "https://denver.craigslist.org/search/cto?format=rss&max_price=20000&min_auto_year=2012&postal=80228&query=subaru%20impreza&search_distance=75";
+
+        if (url.trim().isEmpty()) {
+            url = defaultRSS;
+        }
+
         carService.updateCarsViaRSS(url);
 
         logger.info(" < POST /api/consumeRSS");

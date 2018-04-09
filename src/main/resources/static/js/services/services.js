@@ -16,24 +16,24 @@ export const getCars = () => {
 
         dispatch(callingAPI());
 
-        setTimeout(() => {
-            dispatch(finishedCallingAPI());
-            dispatch(fetchCarsSuccess(stateData.cars));
-        }, 1000);
+        // setTimeout(() => {
+        //     dispatch(finishedCallingAPI());
+        //     dispatch(fetchCarsSuccess(stateData.cars));
+        // }, 1000);
 
 
-        // fetch('/api/cars', {credentials: 'same-origin'})
-        //     .then(res => {
-        //         return res.json();
-        //     })
-        //     .then(response => {
-        //         dispatch(finishedCallingAPI());
-        //         dispatch(fetchCarsSuccess(response));
-        //     })
-        //     .catch(error => {
-        //         dispatch(finishedCallingAPI());
-        //         dispatch(fetchCarsFailure(error));
-        //     })
+        fetch('/api/cars', {credentials: 'same-origin'})
+            .then(res => {
+                return res.json();
+            })
+            .then(response => {
+                dispatch(finishedCallingAPI());
+                dispatch(fetchCarsSuccess(response));
+            })
+            .catch(error => {
+                dispatch(finishedCallingAPI());
+                dispatch(fetchCarsFailure(error));
+            })
     }
 }
 
@@ -42,33 +42,40 @@ export const postRss = (rss) => {
 
         dispatch(callingAPI());
 
-        if (rss) {
-            setTimeout(() => {
-                dispatch(postRssSuccess());
-            }, 1000);
-        } else {
-            setTimeout(() => {
-                dispatch(postRssSuccess());
-            }, 1000);
-        }
+        // if (rss) {
+        //     setTimeout(() => {
+        //         dispatch(postRssSuccess());
+        //     }, 1000);
+        // } else {
+        //     setTimeout(() => {
+        //         dispatch(postRssSuccess());
+        //     }, 1000);
+        // }
+
+        const cookies = new Cookies();
+        const csrf = cookies.get('XSRF-TOKEN');
+
+        const headers = new Headers();
+        headers.append('X-XSRF-TOKEN', csrf);
 
         const request = {
+            headers: headers,
             method: 'POST',
             body: rss,
-            credentials: 'same-origin',
+            credentials: 'same-origin'
         }
 
-        // fetch("/api/consumeRSS", request)
-        //     .then(res => {
-        //         dispatch(finishedCallingAPI());
-        //         if (res.status === 201) {
-        //             dispatch(postRssSuccess());
-        //         }
-        //     })
-        //     .catch(error => {
-        //         dispatch(finishedCallingAPI());
-        //         dispatch(postRssFailure(error));
-        //     })
+        fetch("/api/consumeRSS", request)
+            .then(res => {
+                dispatch(finishedCallingAPI());
+                if (res.status === 201) {
+                    dispatch(postRssSuccess());
+                }
+            })
+            .catch(error => {
+                dispatch(finishedCallingAPI());
+                dispatch(postRssFailure(error));
+            })
     }
 }
 
@@ -77,17 +84,17 @@ export const authenticate = (username, password) => {
 
         dispatch(callingAPI());
 
-        setTimeout(() => {
-            dispatch(finishedCallingAPI());
-
-            if (username != 'andpel') {
-                dispatch(loginFailure(username));
-            } else {
-                dispatch(loginSuccess(username));
-                dispatch(getCars());
-            }
-
-        }, 1000);
+        // setTimeout(() => {
+        //     dispatch(finishedCallingAPI());
+        //
+        //     if (username != 'andpel') {
+        //         dispatch(loginFailure(username));
+        //     } else {
+        //         dispatch(loginSuccess(username));
+        //         dispatch(getCars());
+        //     }
+        //
+        // }, 1000);
 
         const headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -103,21 +110,21 @@ export const authenticate = (username, password) => {
             credentials: 'same-origin',
         }
 
-        // fetch('/login', request)
-        //     .then(response => {
-        //         dispatch(finishedCallingAPI());
-        //
-        //         if (response.url.includes("/?error")) {
-        //             dispatch(loginFailure(username));
-        //         } else {
-        //             dispatch(loginSuccess(username));
-        //             dispatch(getCars());
-        //         }
-        //     })
-        //     .catch(error => {
-        //         dispatch(finishedCallingAPI());
-        //         dispatch(loginFailure(username));
-        //     })
+        fetch('/login', request)
+            .then(response => {
+                dispatch(finishedCallingAPI());
+
+                if (response.url.includes("/?error")) {
+                    dispatch(loginFailure(username));
+                } else {
+                    dispatch(loginSuccess(username));
+                    dispatch(getCars());
+                }
+            })
+            .catch(error => {
+                dispatch(finishedCallingAPI());
+                dispatch(loginFailure(username));
+            })
     }
 }
 

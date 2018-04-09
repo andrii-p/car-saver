@@ -1,6 +1,7 @@
 package com.andriiP.carSaver.services;
 
 import com.andriiP.carSaver.dao.Car;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -23,5 +24,6 @@ public interface CarService {
 
     public void saveCars(List<Car> cars);
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateCarsViaRSS(String url);
 }
