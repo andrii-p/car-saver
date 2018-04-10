@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
             .logout()
+                .permitAll()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/");
     }

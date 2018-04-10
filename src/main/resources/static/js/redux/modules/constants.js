@@ -7,6 +7,7 @@ const constants = {
     POST_RSS_FAILURE: "POST_RSS_FAILURE",
     LOGIN_SUCCESS: "LOGIN_SUCCESS",
     LOGIN_FAILURE: "LOGIN_FAILURE",
+    LOGOUT: "LOGOUT"
 }
 
 export default constants

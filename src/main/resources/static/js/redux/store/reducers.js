@@ -34,7 +34,8 @@ export const carsReducer = (state = carsInitialState, action) => {
 
 const userInitialState = {
     isAuthenticated: false,
-    username: null
+    username: null,
+    role: null
 }
 
 export const userReducer = (state = userInitialState, action) => {
@@ -43,13 +44,21 @@ export const userReducer = (state = userInitialState, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                username: action.payload
+                username: action.username,
+                role: action.role
             };
         case C.LOGIN_FAILURE :
             return {
                 ...state,
                 isAuthenticated: false,
-                username: action.payload
+                username: action.username
+            };
+        case C.LOGOUT :
+            return {
+                ...state,
+                isAuthenticated: false,
+                username: null,
+                role: null
             };
         default:
             return state;

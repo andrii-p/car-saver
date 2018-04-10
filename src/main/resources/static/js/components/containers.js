@@ -4,12 +4,16 @@ import Menu from './ui/Menu'
 import CarDetails from './ui/CarDetails'
 import PostForm from './ui/PostForm'
 import {findById} from "../lib/array-helpers";
-import {authenticate, postRss} from "../services/services";
+import {authenticate, postRss, logout} from "../services/services";
 
 export const MenuContainer = connect(
     state =>
         ({
             user: state.user
+        }),
+    dispatch =>
+        ({
+            logout: () => dispatch(logout())
         })
 )(Menu)
 
@@ -36,7 +40,8 @@ export const CarContainer = connect(
 export const PostFormContainer = connect(
     state =>
         ({
-            isCallingAPI: state.isCallingAPI
+            isCallingAPI: state.isCallingAPI,
+            user: state.user
         }),
     dispatch =>
         ({

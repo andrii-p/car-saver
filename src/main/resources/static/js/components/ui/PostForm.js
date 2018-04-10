@@ -24,6 +24,7 @@ class PostForm extends Component {
 
     render() {
         const {isCallingAPI} = this.props;
+        const userRole = this.props.user.role;
 
         const page = (
             <div className="input-form-common">
@@ -32,7 +33,8 @@ class PostForm extends Component {
                         <label>Process default RSS:</label>
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary center-block" onClick={this.submitDefault}>Submit</button>
+                        <button className="btn btn-primary center-block" onClick={this.submitDefault}
+                                disabled={!userRole.includes("ROLE_ADMIN")}>Submit</button>
                     </div>
 
 
@@ -40,7 +42,17 @@ class PostForm extends Component {
                         <label>Process custom RSS:</label>
                         <input class="form-control" ref="_rss" type="text"/>
                     </div>
-                    <button className="btn btn-primary center-block" onClick={this.submit}>Submit</button>
+
+                    <div className="form-group">
+                        <button className="btn btn-primary center-block" onClick={this.submit}
+                                disabled={!userRole.includes("ROLE_ADMIN")}>Submit</button>
+                    </div>
+
+                    {!userRole.includes("ROLE_ADMIN") &&
+                        <div className="alert alert-danger form-group">
+                            You are not authorized for POST RSS operation
+                        </div>
+                    }
                 </form>
             </div>
         )

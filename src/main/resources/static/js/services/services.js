@@ -6,7 +6,8 @@ import {
     loginFailure,
     loginSuccess,
     postRssFailure,
-    postRssSuccess
+    postRssSuccess,
+    logoutAction
 } from '../redux/modules/actions'
 import Cookies from 'universal-cookie';
 import stateData from '../../data/cars.json'
@@ -112,13 +113,23 @@ export const authenticate = (username, password) => {
 
         fetch('/login', request)
             .then(response => {
-                dispatch(finishedCallingAPI());
 
                 if (response.url.includes("/?error")) {
+                    dispatch(finishedCallingAPI());
                     dispatch(loginFailure(username));
+
                 } else {
-                    dispatch(loginSuccess(username));
-                    dispatch(getCars());
+
+                    fetch('/api/roles', {credentials: 'same-origin'})
+                        .then(res => {
+                            return res.json();
+                        })
+                        .then(response => {
+                            const role = response[0].authority;
+                            dispatch(finishedCallingAPI());
+                            dispatch(loginSuccess(username, role));
+                            dispatch(getCars());
+                        })
                 }
             })
             .catch(error => {
@@ -127,6 +138,34 @@ export const authenticate = (username, password) => {
             })
     }
 }
+
+export const logout = () => {
+    return (dispatch) => {
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        const cookies = new Cookies();
+        const csrf = cookies.get('XSRF-TOKEN');
+        const postBody = "_csrf=" + csrf;
+
+        const request = {
+            headers: headers,
+            method: 'POST',
+            body: postBody,
+            credentials: 'same-origin',
+        }
+
+        fetch('/logout', request)
+            .then(response => {
+               dispatch(logoutAction());
+            })
+            .catch(error => {
+                dispatch(logoutAction());
+            })
+    }
+}
+
 
 /*
 FOR REFERENCE ONLY
